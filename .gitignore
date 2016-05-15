@@ -1,0 +1,10 @@
+__pycache__
+.idea
+db.sqlite3
+*.pyc
+*.ini
+*.log
+*.pid
+/media
+/public
+/future

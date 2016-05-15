@@ -1,0 +1,42 @@
+{% extends "photologue/root.html" %}
+{% load photologue_tags i18n %}
+
+{% block title %}{{ object.title }}{% endblock %}
+
+{% block content %}
+
+    <div class="row col-lg-12">
+        <h1 class="page-header">{{ object.title }}</h1>
+        <p class="muted"><small>опубликовано {{ object.date_added }}</small></p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+		    {% if object.caption %}<p>{{ object.caption|safe }}</p>{% endif %}
+		    <a href="{{ object.image.url }}">
+		        <img src="{{ object.get_display_url }}" class="thumbnail" alt="{{ object.title }}">
+		    </a>
+        </div>
+        <div class="slyder">
+            {% if object.public_galleries %}
+                <p>Тут могла быть ваша реклама</p>
+                <div class="slyder">
+                <table>
+
+                    {% for gallery in object.public_galleries %}
+                        <tr>
+                            <td>{% previous_in_gallery object gallery %}</td>
+
+	                        <td class="btn btn-default"><a href="{{ gallery.get_absolute_url }}"> назад </a></td>
+
+	                        <td>{% next_in_gallery object gallery %}</td>
+                        </tr>
+					{% endfor %}
+
+				</table>
+                </div>
+			{% endif %}
+        </div>
+    </div>
+
+{% endblock %}

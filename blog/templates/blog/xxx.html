@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+blog
+{% endblock %}
+{% block content %}
+<h1>Лазерный Бложек</h1>
+    {% for article in articles%}
+        <h4><a href="{% url 'article' article.id %}">{{ article.title }}</a></h4>
+        <h5>{{ article.pub_day }}</h5>
+        <pre>{{ article.get_short_text }}
+            <div class="us">
+                <p>
+                {{ article.user }}
+                </p>
+            </div>
+
+<a href="{% url 'article' article.id %}" >читать далее</a></pre>
+    {% endfor %}
+{% endblock %}

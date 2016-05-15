@@ -1,0 +1,37 @@
+{% extends "photologue/root.html" %}
+{% load i18n %}
+
+{% block title %}Работы{% endblock %}
+
+{% block content %}
+
+    <div class="row col-lg-12">
+        <h1 class="page-header">все альбомы</h1>
+    </div>
+
+
+    {% if object_list %}
+        {% for gallery in object_list %}
+            <div class="row col-lg-12">
+                <h2><a href="{{ gallery.get_absolute_url }}">{{ gallery.title }}</a></h2>
+                <p class="muted"><small>Добавлено {{ gallery.date_added }}</small></p>
+                {% if gallery.description %}<p>{{ gallery.description|safe }}</p>{% endif %}
+                <div class="row">
+                {% for photo in gallery.sample %}
+                    <div class="row col-lg-2">
+                    <a href="{{ photo.get_absolute_url }}">
+                         <img src="{{ photo.get_thumbnail_url }}" class="thumbnail" alt="{{ photo.title }}">
+                    </a>
+                    </div>
+                {% endfor %}
+                </div>
+            <div><a href="{{ gallery.get_absolute_url }}" class="btn btn-default">Дивитись більше</a></div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="row col-lg-12">{% trans "No galleries were found" %}.</div>
+    {% endif %}
+
+    {% include "photologue/includes/paginator.html" %}
+    
+{% endblock %}

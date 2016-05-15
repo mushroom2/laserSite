@@ -1,0 +1,30 @@
+{% extends 'magaz/base.html' %}
+{% block title %}
+    {{ category.cat_name }}
+{% endblock %}
+
+{% block content %}
+<h1>{{ category.cat_name }}</h1>
+<hr>
+ {% for prises in category.prises_set.all  %}
+
+        <div class="row col-lg-6">
+             <div class="shop">
+
+                 <h4><a href="{% url 'prises' prises.id %}">{{ prises.good_name }}</a></h4>
+
+                <img src="{{ prises.pic.url }}" id="shop_pic">
+                <p>{{ prises.good_about }}</p>
+                <p id="mass_price">{{ prises.good_price }} Грн.</p>
+                 <p><a class="btn btn-default" href="{% url 'prises' prises.id %}" role="button"> Хочу купить!!!</a></p>
+
+
+             </div>
+        </div>
+
+        </p>
+
+
+ {% endfor %}
+<p>hv</p>
+{% endblock %}

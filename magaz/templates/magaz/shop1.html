@@ -1,0 +1,18 @@
+{% extends 'magaz/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<h1> Категории товаров </h1>
+    <hr>
+     {% for category in categories %}
+
+        <div class="row col-lg-6">
+             <div class="shop">
+                <img src="{{ category.cat_pic.url }}" id="shop_pic">
+                <h4><a href="{% url 'category' category.slag_url %}"> {{ category.cat_name }} </a></h4>
+             </div>
+        </div>
+
+    {% endfor %}
+
+{% endblock %}

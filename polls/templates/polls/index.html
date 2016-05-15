@@ -1,0 +1,22 @@
+﻿{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+<title> Голосуй.UA </title>
+{% if latest_question_list %}
+	<h1>Голосуй.UA</h1>
+	<a href="/register/">открыл регистрацию</a>
+	<p>
+	<a href="/admin/">admin only</a>
+    </p>
+	<p class="img_centr">
+	<img src="http://cs628128.vk.me/v628128107/36d47/RpgrjahG0Yg.jpg" width="300" height="300" >
+    </p>
+    <h3>На повестке дня следующие вопросы:</h3>
+	<ul>
+    {% for question in latest_question_list %}
+        <li><a href={% url 'polls:detail' question.id %}>{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}

@@ -1,0 +1,120 @@
+.main-content {
+    margin-top: 40px;
+}
+.foot {
+    box-sizing: content-box;
+}
+
+
+h4{
+    margin: 10px;
+}
+pre{
+    box-sizing: content-box;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+h1{
+    text-align: center;
+}
+.form-singing-heading {
+    text-align: center;
+}
+
+
+.col-md-3 {
+    width: 25%;
+}
+
+.end_text{
+    position: fixed;
+    text-align: center;
+    bottom: 5px;
+}
+
+.slyder{
+    width: 170%;
+    height: 170%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+}
+
+.tit{
+    text-align: center;
+}
+
+.item{
+    height: 300px;
+    margin-top: 50px;
+}
+.but1{
+    top: 50%
+}
+.us{
+    text-align: right;
+    box-sizing: content-box;
+    margin-top: -80px;
+    margin-bottom: -60px;
+    margin-right: 40px;
+}
+
+hr{
+    border-color: #193e60;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.n_ph{
+    text-align: center;
+    color: #b2dba1;
+}
+#n_p{
+    margin-left: 130px;
+}
+#n_t{
+    text-align: center;
+    color: #c12e2a;
+    font-size: 32pt;
+}
+#good_title{
+    text-align: left;
+    color: #b2dba1;
+    margin-left:50px;
+}
+#price_hot{
+    margin-left: 150px;
+    color: #c12e2a;
+    font-size: 60pt;
+}
+#shop_pic{
+    height: 150px;
+    left: 50%;
+}
+
+.shop{
+    border: 4px double dimgray;
+    background: #222222;
+    padding: 15px;
+    box-sizing: content-box;
+    height: 300px;
+    width: 400px;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: auto;
+}
+
+.onegood{
+     border: 4px double dimgray;
+    background: #222222;
+    padding: 15px;
+    box-sizing: content-box;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}

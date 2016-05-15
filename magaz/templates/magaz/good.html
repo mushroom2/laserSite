@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+{% extends 'magaz/base.html' %}
+<head lang="en">
+    <meta charset="UTF-8">
+    {% block title %}{{ prices.good_name }}{% endblock %}
+</head>
+<body>
+{% block content %}
+    <div class="onegood">
+     <img src="{{ prices.pic.url }}" id="one_pic">
+<h4 id="new_product">{{ prices.good_name }}</h4>
+<h4>{{ prices.good_about }}</h4>
+<h4 id="price_hot">{{ prices.good_price }} Грн</h4>
+    </div>
+{% endblock %}
+</body>
+</html>
