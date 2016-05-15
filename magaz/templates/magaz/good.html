@@ -12,6 +12,11 @@
 <h4 id="new_product">{{ prices.good_name }}</h4>
 <h4>{{ prices.good_about }}</h4>
 <h4 id="price_hot">{{ prices.good_price }} Грн</h4>
+    {% if prices.in_magaz %}
+        <p> есть в наличии</p>
+    {% else  %}
+        <p> нет на складе</p>
+    {% endif %}
     </div>
 {% endblock %}
 </body>
