@@ -22,4 +22,5 @@ def cat_detail(request, slag_url):
 
 def show_goods(request, good_id):
     prices = get_object_or_404(Prises, id=good_id)
-    return render(request, 'magaz/good.html', {'prices': prices})
+    p_f = Prises.objects.filter(good_price__lte=100)
+    return render(request, 'magaz/good.html', {'prices': prices, 'p_f': p_f})

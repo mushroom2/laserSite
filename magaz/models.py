@@ -20,6 +20,7 @@ class Prises (models.Model):
     in_magaz = models.BooleanField(default=True, help_text='наличие товара на складе', db_index=True)
     category = models.ForeignKey(Category, null=True, blank=True, on_delete=models.SET_NULL)
 
+
     def get_in_magaz(self):
         if self.in_magaz:
             return '+'

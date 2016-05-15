@@ -11,4 +11,5 @@ class ShopAdmin(admin.ModelAdmin):
     list_display = ('good_name', 'good_time', 'good_price', 'in_magaz')
     search_fields = ['good_name']
 
+
 admin.site.register(Prises, ShopAdmin)
