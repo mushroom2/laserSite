@@ -17,7 +17,12 @@
     {% else  %}
         <p> нет на складе</p>
     {% endif %}
-    <p>дешевле не бывает!! {{ p_f }}</p>
+    <hr>
+    <p>Акция!</p>
+    <p>дешевле не бывает!!</p>
+    {% for prices in p_f %}
+       <p> {{ prices.good_name }} {{ prices.good_price }} UAH</p>
+    {% endfor %}
     </div>
 {% endblock %}
 </body>
