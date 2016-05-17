@@ -110,11 +110,18 @@ hr{
     margin-left: auto;
 }
 
+#in_magaz{
+    text-align: left;
+    font-size: 20px;
+    color: #269abc;
+}
+
 .onegood{
-     border: 4px double dimgray;
+    border: 4px double dimgray;
     background: #222222;
     padding: 15px;
     box-sizing: content-box;
     margin-top: 15px;
     margin-bottom: 15px;
+
 }
