@@ -10,18 +10,19 @@
         <p class="muted"><small>опубликовано {{ object.date_added }}</small></p>
     </div>
 
-    <div class="row">
-        <div class="col-md-12">
+    <div class="row" >
+        <div class="col-md-12" id="img-f">
 		    {% if object.caption %}<p>{{ object.caption|safe }}</p>{% endif %}
 		    <a href="{{ object.image.url }}">
-		        <img src="{{ object.get_display_url }}" class="thumbnail" alt="{{ object.title }}">
+                <p class="fig">
+		        <img src="{{ object.get_display_url }}"  alt="{{ object.title }}" id="fig" >
+                </p>
 		    </a>
         </div>
         <div class="slyder">
             {% if object.public_galleries %}
-                <p>Тут могла быть ваша реклама</p>
                 <div class="slyder">
-                <table>
+                <table id="img-slider">
 
                     {% for gallery in object.public_galleries %}
                         <tr>

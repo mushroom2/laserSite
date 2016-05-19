@@ -33,17 +33,7 @@ h1{
     bottom: 5px;
 }
 
-.slyder{
-    width: 170%;
-    height: 170%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: auto;
-}
+
 
 .tit{
     text-align: center;
@@ -124,4 +114,18 @@ hr{
     margin-top: 15px;
     margin-bottom: 15px;
 
+}
+
+#img-f{
+    text-align: center;
+}
+.fig{
+    text-align: center;
+}
+#img-slider{
+
+    margin-left: 35%;
+    margin-right: 35%;
+    width: 350px;
+    height: 150;
 }
