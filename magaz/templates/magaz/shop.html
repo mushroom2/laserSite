@@ -16,7 +16,7 @@
     {% for prices in goods %}
 
         <div class="row col-lg-6">
-             <div class="shop">
+             <div class="shop-pr">
                 <img src="{{ prices.pic.url }}" id="shop_pic">
                 <h4><a href="{% url 'prices' prices.id %}">{{ prices.good_name }}</a></h4>
                 <p>{{ prices.good_about }}</p>
