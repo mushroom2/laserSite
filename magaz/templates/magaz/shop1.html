@@ -9,7 +9,7 @@
         <div class="row col-lg-6">
              <div class="shop">
                 <img src="{{ category.cat_pic.url }}" id="shop_pic">
-                <h4><a href="{% url 'category' category.slag_url %}"> {{ category.cat_name }} </a></h4>
+                 <p><a class="btn btn-default" id="cat_btn" href="{% url 'category' category.slag_url %}" role="button">{{ category.cat_name }} </a></p>
              </div>
         </div>
 
