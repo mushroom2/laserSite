@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'photologue',
     'sortedm2m',
     'magaz',
+    'cart1'
+
 
 
 
@@ -147,3 +149,5 @@ GALLERY_LATEST_LIMIT = 5
 
 FACEBOOK_APP_ID = "875647719207539"
 FACEBOOK_API_SECRET = "09343bff670dcada8fbc32b117206dcf"
+
+CART_SESSION_ID = 'cart'

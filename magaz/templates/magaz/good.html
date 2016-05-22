@@ -18,6 +18,12 @@
         <p id="in_magaz"> нет на складе</p>
     {% endif %}
     <hr>
+        <form action="{% url "cart1:cart_add" prices.id %}" method="post">
+            {{ cart_product_form }}
+            {% csrf_token %}
+            <input type="submit" value="Add to cart">
+        </form>
+    <hr>
     <p>Акция!</p>
     <p>дешевле не бывает!!</p>
     {% for prices in p_f %}

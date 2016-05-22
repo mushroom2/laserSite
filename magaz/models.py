@@ -12,7 +12,7 @@ class Category (models.Model):
 
 
 class Prises (models.Model):
-    good_name = models.CharField(max_length=200)
+    good_name = models.CharField(max_length=200, db_index=True)
     good_price = models.IntegerField('price')
     good_about = models.TextField()
     pic = models.ImageField(upload_to='shop/')
@@ -27,8 +27,6 @@ class Prises (models.Model):
         else:
             return ''
 
-
-
-
     def __str__(self):
         return self.good_name
+

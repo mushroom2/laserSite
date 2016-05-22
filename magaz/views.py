@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from magaz.models import Prises, Category
+from cart1.forms import CartAddProductsForm
 
 
 
@@ -22,5 +23,5 @@ def cat_detail(request, slag_url):
 
 def show_goods(request, good_id):
     prices = get_object_or_404(Prises, id=good_id)
-    p_f = Prises.objects.filter(good_price__lte=100)
-    return render(request, 'magaz/good.html', {'prices': prices, 'p_f': p_f})
+    cart_product_form = CartAddProductsForm()
+    return render(request, 'magaz/good.html', {'prices': prices, 'cart_product_form': cart_product_form})

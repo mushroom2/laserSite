@@ -23,7 +23,8 @@ urlpatterns = [
     url(r'^', include('blog.urls')),
     url(r'^photologue/', include('photologue.urls', namespace="photologue")),
     url(r'^$', TemplateView.as_view(template_name="homepage.html"), name='homepage'),
-    url(r'^shop/', include('magaz.urls'))
+    url(r'^shop/', include('magaz.urls')),
+    url(r'^cart/', include('cart1.urls', namespace='cart1')),
 
 
 
