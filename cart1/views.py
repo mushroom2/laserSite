@@ -8,20 +8,22 @@ from .forms import CartAddProductsForm
 @require_POST
 def cart_add(request, good_id):
     cart = Cart(request)
-    price = get_object_or_404(Prises, id=good_id)
+    prise = get_object_or_404(Prises, id=good_id)
     form = CartAddProductsForm(request.POST)
     if form.is_valid():
         cd = form.cleaned_data
-        cart.add(prise=price,
+        cart.add(prise=prise,
                  quantity=cd['quantity'],
                  update_quantity=cd['update'])
     return redirect('cart1:cart_detail')
 
+
 def cart_remove(request, good_id):
     cart = Cart(request)
-    price = get_object_or_404(Prises, id=good_id)
-    cart.remove(price)
+    prise = get_object_or_404(Prises, id=good_id)
+    cart.remove(prise)
     return redirect('cart1:cart_detail')
+
 
 def cart_detail(request):
     cart = Cart(request)
