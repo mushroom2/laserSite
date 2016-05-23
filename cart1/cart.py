@@ -23,7 +23,7 @@ class Cart(object):
 
         for item in self.cart.values():
             item['good_price'] = (item['good_price'])
-            item['total_good_price'] = item['good_price'] * item['quantity']
+            item['total_good_price'] = int(item['good_price']) * item['quantity']
             yield item
 
     def add(self, prise, quantity=1,  update_quantity=False):

@@ -1,21 +1,19 @@
 {% extends "magaz/base.html" %}
 {% load static %}
 
-{% block title %}
-    Your shopping cart
-{% endblock %}
+{% block title %} кошик {% endblock %}
 
 {% block content %}
-    <h1>Your shopping cart</h1>
-    <table class="cart">
+    <h1>Ваш Кошик</h1>
+    <table class="cart"  >
         <thead>
             <tr>
 
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Remove</th>
-                <th>Unit price</th>                
-                <th>Price</th>
+                <th></th>
+                <th id="tab_head">Товар</th>
+                <th id="tab_head">Видалити</th>
+                <th id="tab_head">Ціна</th>
+                <th id="tab_head">Загальна ціна</th>
             </tr>
         </thead>
         <tbody>
@@ -23,27 +21,21 @@
             {% with prise=item.prise %}
             <tr>
                 <td>
+                    <img id="tab_pic" src="{{ prise.pic.url }}" height="150px">
                 </td>
                 <td>{{ prise.good_name }}</td>
-                <td>
-                    <form action="{% url "cart1:cart_add" prise.id %}" method="post">
-                        {{ item.update_quantity_form.quantity }}
-                        {{ item.update_quantity_form.update }}
-                        <input type="submit" value="Update">
-                        {% csrf_token %}
-                    </form>
-                </td>
-                <td><a href="{% url "cart1:cart_remove" prise.id %}">Remove</a></td>
-                <td class="num">${{ item.price }}</td>
-                <td class="num">${{ item.total_price }}</td>
+
+                <td><a class="btn btn-danger" id="tab_btn" href="{% url "cart1:cart_remove" prise.id %}" role="button">Видалити</a></td>
+                <td class="num">{{ item.good_price }} Uah</td>
+                <td class="num">{{ item.total_good_price }} Uah</td>
             </tr>
             {% endwith %}
 
         {% endfor %}
         <tr class="total">
-            <td>Total</td>
+            <td>Загална сумма</td>
             <td colspan="4"></td>
-            <td class="num">Uah{{ cart.get_total_price }}</td>
+            <td class="num">{{ cart.get_total_price }} Uah</td>
         </tr>
         </tbody>
     </table>
