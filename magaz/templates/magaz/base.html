@@ -30,15 +30,16 @@
           <a class="navbar-brand" href="{% url 'home' %}">laserSite</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
+             <div class="nav pull-right" id="nav_log">Вы вошли, как <strong>{% firstof user.get_short_name user.get_username %}</strong>
+          <a class="btn btn-default" href="{% url 'admin:logout' %}">Выйти</a>
+          </div>
           <ul class="nav navbar-nav">
             <li><a href="{% url 'home' %}">Главная</a></li>
             <li><a href="{% url 'about' %}">О нас</a></li>
             <li><a href="{% url 'xxx' %}">Блог</a> </li>
             <li><a href="/photologue/">Галлереея</a> </li>
-            <li><a href="/polls/">Опросы</a> </li>
+            <li><a href="/admin/">admin</a> </li>
             <li><a href="/shop/">Магазин</a> </li>
-
-
           </ul>
         </div><!--/.nav-collapse -->
       </div>
