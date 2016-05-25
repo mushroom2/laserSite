@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.shortcuts import render_to_response
+from cart1.cart import Cart
 from blog.models import Article
 from photologue.models import *
 
@@ -7,9 +7,11 @@ from photologue.models import *
 def home(request):
     news = Article.objects.order_by('-pub_day')[:5]
     imgs = Photo.objects.on_site().is_public()[:5]
+    cart= Cart(request)
     context={
         'news': news,
         'imgs': imgs,
+        'cart': cart
     }
 
 
@@ -17,13 +19,16 @@ def home(request):
 
 
 def about(request):
-    return render(request, 'blog/about.html')
+    cart= Cart(request)
+    return render(request, 'blog/about.html', {'cart':cart})
 
 
 def xxx(request):
     articles = Article.objects.order_by('-pub_day')
+    cart= Cart(request)
     context={
-        'articles': articles
+        'articles': articles,
+        'cart': cart,
     }
 
 
@@ -31,5 +36,6 @@ def xxx(request):
 
 def show_article(request, article_id):
     article = get_object_or_404(Article, id= article_id)
-    return render(request, 'blog/article.html', {'article': article})
+    cart= Cart(request)
+    return render(request, 'blog/article.html', {'article': article, 'cart': cart})
 

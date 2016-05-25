@@ -6,14 +6,17 @@ from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.views.generic.base import RedirectView
 from django.core.urlresolvers import reverse
-
+from cart1.cart import Cart
 from .models import Photo, Gallery
 
 
 # Gallery views.
 
 
+
+
 class GalleryListView(ListView):
+
     queryset = Gallery.objects.on_site().is_public()
     paginate_by = 20
 
