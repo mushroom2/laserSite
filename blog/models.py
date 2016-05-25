@@ -1,4 +1,5 @@
 import datetime
+from redactor.fields import RedactorField
 
 from django.utils import timezone
 from django.contrib.auth.models import User
@@ -10,7 +11,10 @@ tweet = 1000
 class Article(models.Model):
     title = models.CharField(max_length=200)
     pub_day = models.DateTimeField('pub date')
-    text = models.TextField()
+    text = RedactorField(verbose_name=u'Text',
+                         redactor_options={'lang': 'en', 'focus': 'true'},
+                         allow_file_upload=False,
+                         allow_image_upload=False)
     user = models.ForeignKey(User)
 
     def __str__(self):

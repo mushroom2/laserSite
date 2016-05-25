@@ -28,8 +28,6 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-# Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -44,11 +42,8 @@ INSTALLED_APPS = [
     'photologue',
     'sortedm2m',
     'magaz',
-    'cart1'
-
-
-
-
+    'cart1',
+    'redactor',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -151,3 +146,6 @@ FACEBOOK_APP_ID = "875647719207539"
 FACEBOOK_API_SECRET = "09343bff670dcada8fbc32b117206dcf"
 
 CART_SESSION_ID = 'cart'
+
+REDACTOR_OPTIONS = {'lang': 'ru'}
+REDACTOR_UPLOAD = 'media/'

@@ -25,9 +25,6 @@ urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name="homepage.html"), name='homepage'),
     url(r'^shop/', include('magaz.urls')),
     url(r'^cart/', include('cart1.urls', namespace='cart1')),
-
-
-
-
+    url(r'^redactor/', include('redactor.urls', namespace='redactor' )),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
