@@ -31,22 +31,18 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
              <div class="nav pull-right" id="nav_log">Вы вошли, как <strong>{% firstof user.get_short_name user.get_username %}</strong>
-
-
-            {% with total_items=cart|length %}
+                  {% with total_items=cart|length %}
                 {% if cart|length > 0 %}
                     У вашому кошику:
                     <a href="{% url "cart1:cart_detail" %}">
                         {{ total_items }} item{{ total_items|pluralize }}, на сумму {{ cart.get_total_price }} Uah
                     </a>
                 {% else %}
-                    ви ніхуя не купили
+                    у кошику нема товарів
                 {% endif %}
-            {% endwith %}
-
-
-          <a class="btn btn-default" href="{% url 'admin:logout' %}">Выйти</a>
-          </div>
+                {% endwith %}
+                    <a class="btn btn-default" href="{% url 'admin:logout' %}">Выйти</a>
+             </div>
           <ul class="nav navbar-nav">
             <li><a href="{% url 'home' %}">Главная</a></li>
             <li><a href="{% url 'about' %}">О нас</a></li>
@@ -74,7 +70,7 @@
     <div class="foot">
       <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2016 Зроблено на Сихові &middot; <a href="#">Андрій Війтик</a> &middot; <a href="#">Сфера-Лазер</a></p>
+        <p>&copy; 2016 Зроблено на Сихові &middot; <a href="https://www.facebook.com/profile.php?id=100007905615689">Андрій Війтик</a> &middot; <a href="#">Сфера-Лазер</a></p>
       </footer>
     </div>
 
