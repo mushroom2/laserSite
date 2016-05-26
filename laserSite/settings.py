@@ -131,11 +131,14 @@ ACCOUNT_ACTIVATION_DAYS = 2
 
 AUTH_USER_EMAIL_UNIQUE = True
 EMAIL_HOST = 'localhost'
-EMAIL_PORT = 587
+EMAIL_PORT = 587    #[sudo] python[3.4] -m smtpd -n -c DebuggingServer localhost:587
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = False
 DEFAULT_FROM_EMAIL = 'info@google.ru'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'public', 'media')
 MEDIA_URL = "/media/"

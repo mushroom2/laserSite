@@ -71,7 +71,7 @@ class ModelActivationViewTests(ActivationTestCase):
         )
 
         self.assertEqual(200, resp.status_code)
-        self.assertTemplateUsed(resp, 'registration/activate.html')
+        self.assertTemplateUsed(resp, 'registration/activation_complete.html')
 
 
 class ModelActivationCompatibilityTests(ModelActivationViewTests):

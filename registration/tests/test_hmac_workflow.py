@@ -82,7 +82,7 @@ class HMACViewTests(ActivationTestCase):
 
         # Second activation fails.
         self.assertEqual(200, resp.status_code)
-        self.assertTemplateUsed(resp, 'registration/activate.html')
+        self.assertTemplateUsed(resp, 'registration/activation_complete.html')
 
     def test_activation_expired(self):
         """
@@ -132,7 +132,7 @@ class HMACViewTests(ActivationTestCase):
         )
 
         self.assertEqual(200, resp.status_code)
-        self.assertTemplateUsed(resp, 'registration/activate.html')
+        self.assertTemplateUsed(resp, 'registration/activation_complete.html')
 
     def test_nonexistent_activation(self):
         """
@@ -154,4 +154,4 @@ class HMACViewTests(ActivationTestCase):
         )
 
         self.assertEqual(200, resp.status_code)
-        self.assertTemplateUsed(resp, 'registration/activate.html')
+        self.assertTemplateUsed(resp, 'registration/activation_complete.html')
