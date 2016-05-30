@@ -13,12 +13,10 @@ register = RegistrationView.as_view()
 urlpatterns = [
     url(r'^polls/', include('polls.urls', namespace="polls")),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^accounts/', include('registration.urls')),
+    url(r'^accounts/', include('registration.urls', namespace="registration")),
     url(r'^accounts/register/$', register, {
         'form_class': RegistrationForm,
-        'backend': 'registration.backends.default.DefaultBackend',
-
-    }),
+        'backend': 'registration.backends.default.DefaultBackend'},),
     url('', include('registration.urls')),
     url(r'^', include('blog.urls')),
     url(r'^photologue/', include('photologue.urls', namespace="photologue")),

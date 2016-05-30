@@ -30,8 +30,12 @@
           <a class="navbar-brand" href="{% url 'home' %}">laserSite</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-             <div class="nav pull-right" id="nav_log">Вы вошли, как <strong>{% firstof user.get_short_name user.get_username %}</strong>
-                  {% with total_items=cart|length %}
+             <div class="nav pull-right" id="nav_log">
+            {% if user.is_authenticated %}
+
+                 Вы вошли, как <strong>{% firstof user.get_short_name user.get_username %}</strong>
+
+                {% with total_items=cart|length %}
                 {% if cart|length > 0 %}
                     У вашому кошику:
                     <a href="{% url "cart1:cart_detail" %}">
@@ -42,6 +46,12 @@
                 {% endif %}
                 {% endwith %}
                     <a class="btn btn-default" href="{% url 'admin:logout' %}">Выйти</a>
+
+            {% else %}
+                Ви не авторізовані. Увійдить, або <a href="{% url 'registration:registration_register' %}" >зареєструйтесь</a>
+            {% endif %}
+
+
              </div>
           <ul class="nav navbar-nav">
             <li><a href="{% url 'home' %}">Главная</a></li>
