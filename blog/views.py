@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from cart1.cart import Cart
-from blog.models import Article
+from blog.models import Article, Partners
 from photologue.models import *
 
 
@@ -20,8 +20,12 @@ def home(request):
 
 def about(request):
     cart= Cart(request)
-    return render(request, 'blog/about.html', {'cart':cart})
+    partners= Partners.objects.all()
+    return render(request, 'blog/about.html', {'cart':cart, 'partners':partners})
 
+def show_partners(request, partner_id):
+    partner = get_object_or_404(Partners ,id= partner_id)
+    return render(request, 'blog/partner.html', {'partner': partner})
 
 def xxx(request):
     articles = Article.objects.order_by('-pub_day')

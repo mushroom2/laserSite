@@ -32,3 +32,14 @@ class Article(models.Model):
     w_p_r.admin_order_field = 'pub_date'
     w_p_r.boolean = True
     w_p_r.short_description = 'fresh'
+
+class Partners(models.Model):
+    PartnerName = models.CharField(max_length=40)
+    PartnerPic = models.ImageField(upload_to='partners/')
+    PartnerDate = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.PartnerName
+
+    class Meta:
+        ordering = ['-PartnerDate']
