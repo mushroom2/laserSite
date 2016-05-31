@@ -125,7 +125,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = os.path.join(BASE_DIR, 'static')
 
 ACCOUNT_ACTIVATION_DAYS = 2
 
@@ -139,7 +139,7 @@ DEFAULT_FROM_EMAIL = 'info@google.ru'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 
-
+STATIC_ROOT ='static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'public', 'media')
 MEDIA_URL = "/media/"
 SITE_ID = 1
