@@ -9,7 +9,7 @@ blog
     {% for article in articles%}
         <h4><a href="{% url 'article' article.id %}">{{ article.title }}</a></h4>
         <h5>{{ article.pub_day }}</h5>
-        <pre>{{ article.get_short_text }}
+        <pre id="pre-home">{{ article.get_short_text }}
             <div class="us">
                 <p>
                 {{ article.user }}
