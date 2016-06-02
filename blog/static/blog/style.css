@@ -201,3 +201,12 @@ hr{
     background: #222222;
     color: #888888;
 }
+
+.contacts{
+    font-size: 18pt;
+    margin-top: 100px;
+
+}
+#gmap{
+    margin-left: 100px;
+}
