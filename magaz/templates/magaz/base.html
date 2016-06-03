@@ -49,6 +49,16 @@
 
             {% else %}
                 Ви не авторізовані. Увійдить, або <a href="{% url 'registration:registration_register' %}" >зареєструйтесь</a>
+                {% with total_items=cart|length %}
+                {% if cart|length > 0 %}
+                    У вашому кошику:
+                    <a href="{% url "cart1:cart_detail" %}">
+                        {{ total_items }} item{{ total_items|pluralize }}, на сумму {{ cart.get_total_price }} Uah
+                    </a>
+                {% else %}
+                    у кошику нема товарів
+                {% endif %}
+                {% endwith %}
             {% endif %}
 
 
