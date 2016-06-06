@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'magaz',
     'cart1',
     'redactor',
+    'social_auth',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -153,3 +154,8 @@ CART_SESSION_ID = 'cart'
 
 REDACTOR_OPTIONS = {'lang': 'ru'}
 REDACTOR_UPLOAD = 'media/'
+
+AUTHENTICATION_BACKENDS = (
+    'social_auth.backends.facebook.FacebookBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)

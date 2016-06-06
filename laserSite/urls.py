@@ -24,5 +24,6 @@ urlpatterns = [
     url(r'^shop/', include('magaz.urls')),
     url(r'^cart/', include('cart1.urls', namespace='cart1')),
     url(r'^redactor/', include('redactor.urls', namespace='redactor' )),
+    url(r'^social/', include('social_auth.urls', namespace='social'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
