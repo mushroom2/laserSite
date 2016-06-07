@@ -150,8 +150,8 @@ SITE_ID = 1
 GALLERY_LATEST_LIMIT = 5
 
 
-LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/done/'
+
+LOGIN_REDIRECT_URL = '/'
 URL_PATH = ''
 SOCIAL_AUTH_STRATEGY = 'social.strategies.django_strategy.DjangoStrategy'
 SOCIAL_AUTH_STORAGE = 'social.apps.django_app.default.models.DjangoStorage'
@@ -162,7 +162,7 @@ SOCIAL_AUTH_PIPELINE = (
     'social.pipeline.social_auth.auth_allowed',
     'social.pipeline.social_auth.social_user',
     'social.pipeline.user.get_username',
-    'example.app.pipeline.require_email',
+    #'example.app.pipeline.require_email',
     'social.pipeline.mail.mail_validation',
     'social.pipeline.user.create_user',
     'social.pipeline.social_auth.associate_user',
