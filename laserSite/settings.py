@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'magaz',
     'cart1',
     'redactor',
-    'social_auth',
+    'social.apps.django_app.default',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -72,6 +72,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'cart1.processors.context_processors.cart',
+                'social.apps.django_app.context_processors.backends',
+                'social.apps.django_app.context_processors.login_redirect',
             ],
         },
     },
@@ -147,8 +149,31 @@ MEDIA_URL = "/media/"
 SITE_ID = 1
 GALLERY_LATEST_LIMIT = 5
 
-FACEBOOK_APP_ID = "875647719207539"
-FACEBOOK_API_SECRET = "09343bff670dcada8fbc32b117206dcf"
+
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/done/'
+URL_PATH = ''
+SOCIAL_AUTH_STRATEGY = 'social.strategies.django_strategy.DjangoStrategy'
+SOCIAL_AUTH_STORAGE = 'social.apps.django_app.default.models.DjangoStorage'
+
+SOCIAL_AUTH_PIPELINE = (
+    'social.pipeline.social_auth.social_details',
+    'social.pipeline.social_auth.social_uid',
+    'social.pipeline.social_auth.auth_allowed',
+    'social.pipeline.social_auth.social_user',
+    'social.pipeline.user.get_username',
+    'example.app.pipeline.require_email',
+    'social.pipeline.mail.mail_validation',
+    'social.pipeline.user.create_user',
+    'social.pipeline.social_auth.associate_user',
+    'social.pipeline.debug.debug',
+    'social.pipeline.social_auth.load_extra_data',
+    'social.pipeline.user.user_details',
+    'social.pipeline.debug.debug'
+)
+
+SOCIAL_AUTH_FACEBOOK_KEY = "875647719207539"
+SOCIAL_AUTH_FACEBOOK_SECRET = "09343bff670dcada8fbc32b117206dcf"
 
 CART_SESSION_ID = 'cart'
 
@@ -156,6 +181,7 @@ REDACTOR_OPTIONS = {'lang': 'ru'}
 REDACTOR_UPLOAD = 'media/'
 
 AUTHENTICATION_BACKENDS = (
-    'social_auth.backends.facebook.FacebookBackend',
+    'social.backends.facebook.FacebookAppOAuth2',
+    'social.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )

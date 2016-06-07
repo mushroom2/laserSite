@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^shop/', include('magaz.urls')),
     url(r'^cart/', include('cart1.urls', namespace='cart1')),
     url(r'^redactor/', include('redactor.urls', namespace='redactor' )),
-    url(r'^social/', include('social_auth.urls', namespace='social'))
+    url('', include('social.apps.django_app.urls', namespace='social')),
+    url('', include('django.contrib.auth.urls', namespace='auth')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
