@@ -67,7 +67,8 @@
                     <a class="btn btn-default" href="{% url 'admin:logout' %}">Выйти</a>
 
             {% else %}
-                Ви не авторізовані. Увійдить, або <a href="{% url 'registration:registration_register' %}" >зареєструйтесь</a>
+                Ви не авторізовані. Увійдить за допомогою <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">Faceook</a>
+
                 {% with total_items=cart|length %}
                 {% if cart|length > 0 %}
                     У вашому кошику:
@@ -75,10 +76,10 @@
                         {{ total_items }} item{{ total_items|pluralize }}, на сумму {{ cart.get_total_price }} Uah
                     </a>
                 {% else %}
-                    у кошику нема товарів
+                    . Кошик  порожній
                 {% endif %}
                 {% endwith %}
-                    <a class="btn btn-default" href="/#">Вхід</a>
+                    <a class="btn btn-default" href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">Вхід</a>
             {% endif %}
 
 
