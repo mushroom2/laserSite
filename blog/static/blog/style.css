@@ -73,7 +73,7 @@ hr{
 }
 #n_t{
     text-align: center;
-    color: #c12e2a;
+    color: #5a82c1;
     font-size: 32pt;
 }
 #good_title{
@@ -82,9 +82,9 @@ hr{
     margin-left:50px;
 }
 #price_hot{
-    margin-left: 150px;
+    text-align: center;
     color: #c12e2a;
-    font-size: 60pt;
+    font-size: 32pt;
 }
 #shop_pic{
     height: 220px;
