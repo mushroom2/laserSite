@@ -11,10 +11,10 @@
         <div class="row col-lg-6">
              <div class="shop-pr">
 
-                 <h4><a href="{% url 'prises' prises.id %}">{{ prises.good_name }}</a></h4>
+                 <h5><a href="{% url 'prises' prises.id %}">{{ prises.good_name }}</a></h5>
 
                 <img src="{{ prises.pic.url }}" id="shop_pic">
-                <p>{{ prises.good_about }}</p>
+                <p>{{ prises.shortMagazText }}</p>
                 <p id="mass_price">{{ prises.good_price }} Грн.</p>
                  <p><a class="btn btn-default" id="cat_btn1" href="{% url 'prises' prises.id %}" role="button"> Хочу купити!</a></p>
 

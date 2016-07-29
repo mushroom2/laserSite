@@ -2,9 +2,8 @@
     margin-top: 40px;
 }
 .foot {
-    box-sizing: content-box;
+    position: absolute;
     font-size: 10px;
-    position: relative;
     left: 40%;
     right: 40%;
 }

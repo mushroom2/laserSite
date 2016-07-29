@@ -30,3 +30,9 @@ class Prises (models.Model):
     def __str__(self):
         return self.good_name
 
+    def shortMagazText(self):
+        if len(self.good_about) > 105:
+            return self.good_about[:105] + '...'
+        else:
+            return self.good_about
+
