@@ -1,0 +1,27 @@
+{% extends 'magaz/base.html' %}
+
+{% block content %}
+<form action="{% url 'form' %}" method="post">{% csrf_token %}
+    {{ form.non_field_errors }}
+	<div>
+	  <label for="id_subject">Тема:</label>
+	  {{ form.username.errors }}
+	  {{ form.username }}
+	</div>
+	<div>
+	  <label for="id_sender">E-mail:</label>
+	  {{ form.sender.errors }}
+	  {{ form.sender }}
+	</div>
+	<div>
+	  <label for="id_message">Сообщение:</label>
+	  {{ form.message.errors }}
+	  {{ form.message }}
+	</div>
+	<div>
+	  {{ form.copy.errors }}
+	  <label for="id_copy">Отправить копию себе {{ form.copy }}</label>
+	</div>
+	<input type="submit" value="Отправить"/>
+</form>
+{% endblock %}
