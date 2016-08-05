@@ -223,7 +223,9 @@ right:10px;
 cursor:pointer;
 display:none;
 color:#333;
-font-family:verdana;
 font-size:11px;
 border-radius: 10px;
+}
+#simpleform{
+    margin-top: 50px;
 }
