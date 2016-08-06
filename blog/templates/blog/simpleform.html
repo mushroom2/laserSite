@@ -1,27 +1,27 @@
 {% extends 'magaz/base.html' %}
 
 {% block content %}
-    <div id="simpleform">
+    <div class="content col-lg-4 col-md-4" id="simpleform">
 <form action="{% url 'form' %}" method="post" class="form-horizontal" role="form">{% csrf_token %}
     {{ form.non_field_errors }}
-	<div class="col-sm-6">
-	  <label id="simpleform username" for="id_subject" class="col-sm-2 control-label">Тема:</label>
+	<div class="form-group">
+	  <label id="simpleform username" for="id_subject" >Тема:</label>
 	  {{ form.username.errors }}
 	  {{ form.username }}
 	</div>
-	<div class="col-sm-6">
-	  <label for="id_sender" class="col-sm-2 control-label">E-mail:</label>
+	<div class="form-group">
+	  <label for="id_sender" >E-mail:</label>
 	  {{ form.sender.errors }}
 	  {{ form.sender }}
 	</div >
-	<div class="col-sm-6" class="col-sm-2 control-label">
-	  <label for="id_message" class="col-sm-2 control-label">Сообщение:</label>
+	<div class="form-group">
+	  <label for="id_message" >Сообщение:</label>
 	  {{ form.message.errors }}
 	  {{ form.message }}
 	</div>
-	<div>
+	<div class='form-group'>
 	  {{ form.copy.errors }}
-	  <label for="id_copy" class="col-sm-2 control-label">Отправить копию себе {{ form.copy }}</label>
+	  <label for="id_copy" > {{ form.copy }} Отправить копию себе</label>
 	</div>
 	<input type="submit" value="Отправить"/>
 </form>
