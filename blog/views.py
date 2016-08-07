@@ -17,7 +17,6 @@ def home(request):
         'imgs': imgs,
         'cart': cart
     }
-
     return render(request, 'blog/home.html', context)
 
 
@@ -40,7 +39,6 @@ def xxx(request):
         'cart': cart,
     }
 
-
     return render(request, 'blog/xxx.html', context)
 
 
@@ -48,7 +46,6 @@ def show_article(request, article_id):
     article = get_object_or_404(Article, id= article_id)
     cart= Cart(request)
     return render(request, 'blog/article.html', {'article': article, 'cart': cart})
-
 
 def mysimpleform(request):
 
