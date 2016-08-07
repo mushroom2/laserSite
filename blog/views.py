@@ -53,7 +53,7 @@ def mysimpleform(request):
         form = SimpleForm(request.POST)
 
         if form.is_valid():
-            username = form.cleaned_data['username']
+            username = form.cleaned_data['username'] + ' from ' + str(form.cleaned_data['sender'])
             sender = form.cleaned_data['sender']
             message = form.cleaned_data['message']
             copy = form.cleaned_data['copy']
@@ -66,7 +66,7 @@ def mysimpleform(request):
                 send_mail(username, message, sender, recipients)
             except BadHeaderError:
                 return HttpResponse('something goes wrong ;(')
-            return HttpResponseRedirect('/about/thanks')
+            return HttpResponseRedirect('/thanks')
 
     else:
         form = SimpleForm()
