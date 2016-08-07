@@ -45,6 +45,7 @@ class RegistrationView(FormView):
         except ValueError:
             return redirect(success_url)
 
+
     def registration_allowed(self):
         """
         Override this to enable/disable user registration, either
@@ -54,11 +55,10 @@ class RegistrationView(FormView):
         return getattr(settings, 'REGISTRATION_OPEN', True)
 
     def register(request, success_url=None,
-             #form_class=RegistrationForm,
-             form_class=RegistrationForm,
-             profile_callback=None,
-             template_name='registration/registration_form.html',
-             extra_context=None):
+                 form_class=RegistrationForm,
+                 profile_callback=None,
+                 template_name='registration/registration_form.html',
+                 extra_context=None):
         raise NotImplementedError
 
 
