@@ -51,7 +51,7 @@ def show_article(request, article_id):
 
 
 def mysimpleform(request):
-    cart= Cart(request)
+
     if request.method == 'POST':
         form = SimpleForm(request.POST)
 
@@ -73,7 +73,7 @@ def mysimpleform(request):
 
     else:
         form = SimpleForm()
-    return render(request, 'blog/simpleform.html', {'form': form, 'username': auth.get_user(request).username, 'cart': cart})
+    return render(request, 'blog/simpleform.html', {'form': form, 'username': auth.get_user(request).username})
 
 
 def thenks(request):
