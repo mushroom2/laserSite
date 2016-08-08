@@ -202,13 +202,9 @@ hr{
     color: #888888;
 }
 
-.contacts{
-    font-size: 18pt;
-    margin-top: 100px;
-
-}
-#gmap{
-    margin-left: 100px;
+.contacts {
+    font-size: 13pt;
+    margin-top: 55px;
 }
 
 #toTop {
@@ -228,11 +224,21 @@ border-radius: 10px;
 }
 #simpleform{
     margin-top: 50px;
+    border: 4px solid dimgray;
+    background: #222222;
+    border-radius: 10px;
 }
 #thenks{
     margin-top: 50px;
     border: 4px solid dimgray;
     background: #222222;
     border-radius: 10px;
+}
 
+#postform{
+    padding: 15px;
+}
+
+#form_title{
+    text-align: center;
 }

@@ -23,7 +23,8 @@ def home(request):
 def about(request):
     cart= Cart(request)
     partners= Partners.objects.all()
-    return render(request, 'blog/about.html', {'cart':cart, 'partners':partners})
+    form = SimpleForm(request.POST)
+    return render(request, 'blog/about.html', {'cart': cart, 'partners': partners, 'form': form})
 
 
 def show_partners(request, partner_id):
@@ -46,6 +47,7 @@ def show_article(request, article_id):
     article = get_object_or_404(Article, id= article_id)
     cart= Cart(request)
     return render(request, 'blog/article.html', {'article': article, 'cart': cart})
+
 
 def mysimpleform(request):
 

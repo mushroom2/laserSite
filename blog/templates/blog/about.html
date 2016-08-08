@@ -8,21 +8,44 @@ Sfera-Laser
     <div class="row">
 <div class="col-md-6">
     <div class="contacts">
-        <p>Компания "Сфера-лазер"</p>
-        <p>79016 г. Львов, ул. Шевченко, 20</p>
+        <p>Компанія "Сфера-лазер"</p>
+        <p>79016 Львів, вул. Шевченко, 20</p>
         <p>(032) 244-57-61, 245-05-52 моб.: 067-49-19-396 </p>
-        <p>e-mail:  sferalaser@gmail.com</p>
+        <p>e-mail:  <a href="mailto:sferalaser@gmail.com">sferalaser@gmail.com</a></p>
+    </div>
+    <div>
+        <iframe id="gmap" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2572.9503205020164!2d24.01387431525171!3d49.84339097939623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473add75d3e4d639%3A0xebd6fc2dba4f91af!2z0KHQpNCV0KDQkC3Qm9CQ0JfQldCgINCa0J7QnNCf0JDQndCG0K8g0KLQntCS!5e0!3m2!1sru!2sua!4v1464072083394" width="450" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
     </div>
 </div>
-<div class="col-md-6">
-    <iframe id="gmap" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2572.9503205020164!2d24.01387431525171!3d49.84339097939623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473add75d3e4d639%3A0xebd6fc2dba4f91af!2z0KHQpNCV0KDQkC3Qm9CQ0JfQldCgINCa0J7QnNCf0JDQndCG0K8g0KLQntCS!5e0!3m2!1sru!2sua!4v1464072083394" width="450" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+        <div class="content col-lg-4 col-md-4"  id="simpleform">
+<form action="{% url 'form' %}" method="post" id="postform" class="form-horizontal" role="form">{% csrf_token %}
+    <h3 id="form_title" >Зворотній зв'язок</h3>
+    {{ form.non_field_errors }}
+	<div class="form-group">
+	  <label id="simpleform username" for="id_subject" >Тема:</label>
+	  {{ form.username }}
+	</div>
+	<div class="form-group">
+	  <label for="id_sender" >E-mail:</label>
+	  {{ form.sender }}
+	</div >
+	<div class="form-group">
+	  <label for="id_message" >Повідомлення:</label>
+	  {{ form.message }}
+	</div>
+	<div class='form-group'>
+	  {{ form.copy.errors }}
+	  <label for="id_copy" > {{ form.copy }} Копія на свій e-mail</label>
+	</div>
+	<input type="submit" value="Отправить"/>
+</form>
 </div>
+
 </div>
-    <hr>
 
-        <h1>Наші партнери</h1>
-
-
+<hr>
+<h1>Наші партнери</h1>
     {% for partner in partners %}
     <div class="row col-lg-2">
              <div class="partners">
