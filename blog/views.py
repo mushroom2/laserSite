@@ -1,4 +1,5 @@
 from django.contrib import auth
+from django.contrib.auth import authenticate, login
 from django.shortcuts import render, get_object_or_404
 from cart1.cart import Cart
 from blog.models import Article, Partners
@@ -80,7 +81,19 @@ def thenks(request):
     context = {'thenks': thenks}
     return render(request, 'blog/thenks.html', context)
 
-
-
-
-
+def userauth(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(username=username, password=password)
+        if user:
+            if user.is_active:
+                login(request, user)
+                return HttpResponseRedirect('/about/')
+            else:
+                return HttpResponse("Your sferalaser account is disabled.")
+        else:
+            print('невірні данні: {0}, {1}'.format(username, password))
+            return HttpResponse("Invalid login details supplied.")
+    else:
+        return render(request, 'blog/userlogin.html', {})

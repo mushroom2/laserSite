@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Авторизація</title>
+</head>
+<body>
+{% extends 'magaz/base.html' %}
+{% block content %}
+    <form id="login_form" method="post" action="{% url 'userlogin' %}">
+            {% csrf_token %}
+            Username: <input type="text" name="username" value="" size="50" />
+            <br />
+            Password: <input type="password" name="password" value="" size="50" />
+            <br />
+
+            <input type="submit" value="submit" />
+        </form>
+
+{% endblock %}
+</body>
+</html>
