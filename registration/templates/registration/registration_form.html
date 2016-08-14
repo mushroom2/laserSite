@@ -1,10 +1,10 @@
 ﻿{% extends "magaz/base.html" %}
 {% block title %}
-rega
+Реєстрація
 {% endblock %}
 {% block content %}
-<h1>Регистрация</h1>
-<form method="post" id="simpleform" action="" class="form-horizontal">
+<h1>Реєстрація</h1>
+<form method="post" id="simpleform" action="" class="col-md-5">
 {% csrf_token %}
 <dl class="register">
 {% for field in form %}
@@ -15,6 +15,6 @@ rega
     </dd>
 {% endfor %}
 </dl>
-<input class="btn-success" type="submit" value="Зарегистрироваться" / class="clearfix">
+<input class="btn-success" type="submit" value="Зареєструватись" >
 </form>
 {% endblock %}
