@@ -247,3 +247,8 @@ border-radius: 10px;
 #helptext{
     word-wrap: break-word;
 }
+#form-button{
+    margin-top: 15px;
+    border-radius: 10px;
+
+}
