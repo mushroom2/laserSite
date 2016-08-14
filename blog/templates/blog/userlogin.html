@@ -7,7 +7,8 @@
 <body>
 {% extends 'magaz/base.html' %}
 {% block content %}
-    <form id="simpleform" class="col-md-5"  method="post" action="{% url 'userlogin' %}">
+    <h1>Авторизація</h1>
+    <form id="centrform" class="col-md-5"  method="post" action="{% url 'userlogin' %}">
             {% csrf_token %}
             <label for="userlogin_username">Ім"я користувача</label>
             <br />
@@ -20,7 +21,7 @@
 
             <input class="btn-success" type="submit" value="Вхід" id="form-button" />
         </form>
-
+    </div>
 {% endblock %}
 </body>
 </html>
