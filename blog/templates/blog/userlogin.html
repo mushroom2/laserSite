@@ -7,14 +7,16 @@
 <body>
 {% extends 'magaz/base.html' %}
 {% block content %}
-    <form id="login_form" method="post" action="{% url 'userlogin' %}">
+    <form id="simpleform" class="form-horizontal"  method="post" action="{% url 'userlogin' %}">
             {% csrf_token %}
-            Username: <input type="text" name="username" value="" size="50" />
-            <br />
-            Password: <input type="password" name="password" value="" size="50" />
+
+            <input type="text" name="username" value="" size="30" /> Ім'я користувача
             <br />
 
-            <input type="submit" value="submit" />
+            <input type="password" name="password" value="" size="30" /> Пароль
+            <br />
+
+            <input class="btn-success" type="submit" value="Вхід" />
         </form>
 
 {% endblock %}
