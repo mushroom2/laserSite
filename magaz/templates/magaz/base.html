@@ -84,7 +84,7 @@ $('body,html').animate({scrollTop:0},800);
              <div class="nav pull-right" id="nav_log">
             {% if user.is_authenticated %}
 
-                 Вы вошли, как <strong>{% firstof user.get_short_name user.get_username %}</strong>
+                 Ви увійшли, як  <strong>{% firstof user.get_short_name user.get_username %}</strong>
 
                 {% with total_items=cart|length %}
                 {% if cart|length > 0 %}
@@ -144,7 +144,7 @@ $('body,html').animate({scrollTop:0},800);
 
       <div class="foot">
       <footer>
-        <span>&copy; 2016 Зроблено на Сихові &middot; <a href="https://www.facebook.com/profile.php?id=100007905615689">Андрій Війтик</a> &middot; <a href="#">Сфера-Лазер</a></span>
+        <span>&copy; 2016 Зроблено на Сихові &middot; <a href="https://www.facebook.com/profile.php?id=100007905615689">Андрій Війтик</a> &middot; <a href="https://www.facebook.com/SferaLaser">Сфера-Лазер</a></span>
       </footer>
     </div>
 

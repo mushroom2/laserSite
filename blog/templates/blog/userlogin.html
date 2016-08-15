@@ -10,15 +10,11 @@
     <h1>Авторизація</h1>
     <form id="centrform" class="col-md-5"  method="post" action="{% url 'userlogin' %}">
             {% csrf_token %}
-            <label for="userlogin_username">Ім"я користувача</label>
             <br />
-            <input type="text" name="username" id="userlogin_username" value=""  size="30" />
+            <input type="text" name="username" placeholder="Ім'я користувача" id="userlogin_username" value=""  size="30" class="form-group" />
             <br />
-             <label for="userlogin_password">Пароль</label>
+            <input type="password" name="password" placeholder="Пароль" id="userlogin_password" value="" size="30" class="form-group" />
             <br />
-            <input type="password" name="password" id="userlogin_password" value="" size="30" />
-            <br />
-
             <input class="btn-success" type="submit" value="Вхід" id="form-button" />
         </form>
     </div>
