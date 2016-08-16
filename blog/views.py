@@ -1,5 +1,5 @@
 from django.contrib import auth
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, get_object_or_404
 from cart1.cart import Cart
 from blog.models import Article, Partners
@@ -89,7 +89,7 @@ def userauth(request):
         if user:
             if user.is_active:
                 login(request, user)
-                return HttpResponseRedirect('/about/')
+                return HttpResponseRedirect('/')
             else:
                 return HttpResponse("Your sferalaser account is disabled.")
         else:
@@ -97,3 +97,9 @@ def userauth(request):
             return HttpResponse("Invalid login details supplied.")
     else:
         return render(request, 'blog/userlogin.html', {})
+
+
+def logout_view(request):
+    lo = logout(request)
+    return render(request, 'blog/logout.html', {'logout': lo})
+

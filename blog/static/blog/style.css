@@ -26,6 +26,7 @@ h1{
 }
 
 
+
 .col-md-3 {
     width: 25%;
 }
@@ -268,4 +269,7 @@ border-radius: 10px;
 }
 #textbox{
     width: inherit;
+}
+#carticon{
+    font-size: 14pt;
 }

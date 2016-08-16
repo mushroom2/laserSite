@@ -87,37 +87,32 @@ $('body,html').animate({scrollTop:0},800);
             {% if user.is_authenticated %}
 
                  Ви увійшли, як  <strong>{% firstof user.get_short_name user.get_username %}</strong>
-
+                 <a class="btn btn-default" href="{% url 'logout' %}">вийти</a>
                 {% with total_items=cart|length %}
                 {% if cart|length > 0 %}
-                    У вашому кошику:
+                    <span class="glyphicon glyphicon-shopping-cart" id="carticon"> {{ total_items }} </span>
                     <a href="{% url "cart1:cart_detail" %}">
-                        {{ total_items }} item{{ total_items|pluralize }}, на сумму {{ cart.get_total_price }} Uah
+                         {{ total_items|pluralize }} сумма {{ cart.get_total_price }} Uah
                     </a>
                 {% else %}
-                    у кошику нема товарів
+                    <span class="glyphicon glyphicon-shopping-cart" id="carticon"> 0 </span>
                 {% endif %}
                 {% endwith %}
-                    <a class="btn btn-default" href="{% url 'admin:logout' %}">Выйти</a>
-
             {% else %}
-                Ви не авторізовані. Увійдить за допомогою <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">Faceook</a>
-
+                Ви не авторізовані.
                 {% with total_items=cart|length %}
                 {% if cart|length > 0 %}
-                    У вашому кошику:
+                    <span class="glyphicon glyphicon-shopping-cart" id="carticon"></span>
                     <a href="{% url "cart1:cart_detail" %}">
-                        {{ total_items }} item{{ total_items|pluralize }}, на сумму {{ cart.get_total_price }} Uah
+                        {{ total_items }} {{ total_items|pluralize }}, на сумму {{ cart.get_total_price }} Uah
                     </a>
                 {% else %}
-                    . Кошик  порожній
+                    <span class="glyphicon glyphicon-shopping-cart" id="carticon"> 0 </span>
                 {% endif %}
                 {% endwith %}
-                    <a class="btn btn-default" href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">Вхід</a>
             {% endif %}
-
-
              </div>
+
           <ul class="nav navbar-nav">
             <li><a href="{% url 'home' %}">Головна</a></li>
             <li><a href="{% url 'about' %}">Про нас</a></li>
@@ -125,6 +120,16 @@ $('body,html').animate({scrollTop:0},800);
             <li><a href="/photologue/">Галереея</a> </li>
             <li><a href="/admin/">admin</a> </li>
             <li><a href="/shop/">Магазин</a> </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  Вхід <span class="glyphicon glyphicon-log-in"></span> <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="{% url 'userlogin' %}">Вхід</a></li>
+                <li><a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">Вхід через FaceBook</a></li>
+                <li class="divider"></li>
+                <li><a href="/register">реєстрація</a></li>
+              </ul>
+            </li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
