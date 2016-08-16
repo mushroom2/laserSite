@@ -4,7 +4,7 @@
 .foot {
     position: absolute;
     font-size: 10px;
-    margin-left: 40%;
+    margin-left: 43%;
     margin-top: 10px;
 }
 
@@ -272,4 +272,10 @@ border-radius: 10px;
 }
 #carticon{
     font-size: 14pt;
+}
+#carthead{
+    border: 3px solid #269abc;
+    border-radius: 10px;
+    padding: 5px;
+    text-align: center;
 }

@@ -85,30 +85,37 @@ $('body,html').animate({scrollTop:0},800);
         <div id="navbar" class="collapse navbar-collapse">
              <div class="nav pull-right" id="nav_log">
             {% if user.is_authenticated %}
-
                  Ви увійшли, як  <strong>{% firstof user.get_short_name user.get_username %}</strong>
                  <a class="btn btn-default" href="{% url 'logout' %}">вийти</a>
                 {% with total_items=cart|length %}
                 {% if cart|length > 0 %}
-                    <span class="glyphicon glyphicon-shopping-cart" id="carticon">{{ total_items }}</span>
+                    <div id="carthead" class="nav pull-right">
                     <a href="{% url "cart1:cart_detail" %}">
-                          сумма {{ cart.get_total_price }} Uah
+                    <span class="glyphicon glyphicon-shopping-cart" id="carticon">{{ total_items }}</span>
                     </a>
+                          на {{ cart.get_total_price }} Грн
+                    </div>
                 {% else %}
+                    <div id="carthead" class="nav pull-right">
                     <span class="glyphicon glyphicon-shopping-cart" id="carticon"></span>
+                    </div>
                 {% endif %}
                 {% endwith %}
             {% else %}
-                Ви не авторізовані.
+                Ви не авторізовані
                 {% with total_items=cart|length %}
                 {% if cart|length > 0 %}
-
+                    <div id="carthead" class="nav pull-right">
                     <a href="{% url "cart1:cart_detail" %}">
                         <span class="glyphicon glyphicon-shopping-cart" id="carticon"></span>
-                        {{ total_items }} {{ total_items|pluralize }}, на сумму {{ cart.get_total_price }} Uah
+                        {{ total_items }}
                     </a>
+                        на {{ cart.get_total_price }} Грн
+                    </div>
                 {% else %}
+                    <div id="carthead" class="nav pull-right">
                     <span class="glyphicon glyphicon-shopping-cart" id="carticon"></span>
+                    </div>
                 {% endif %}
                 {% endwith %}
             {% endif %}

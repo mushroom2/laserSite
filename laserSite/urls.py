@@ -11,7 +11,6 @@ from django.conf.urls.static import static
 register = RegistrationView.as_view()
 
 urlpatterns = [
-    url(r'^polls/', include('polls.urls', namespace="polls")),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/', include('registration.urls', namespace="registration")),
     url(r'^accounts/register/$', register, {
