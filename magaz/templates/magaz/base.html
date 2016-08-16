@@ -90,24 +90,25 @@ $('body,html').animate({scrollTop:0},800);
                  <a class="btn btn-default" href="{% url 'logout' %}">вийти</a>
                 {% with total_items=cart|length %}
                 {% if cart|length > 0 %}
-                    <span class="glyphicon glyphicon-shopping-cart" id="carticon"> {{ total_items }} </span>
+                    <span class="glyphicon glyphicon-shopping-cart" id="carticon">{{ total_items }}</span>
                     <a href="{% url "cart1:cart_detail" %}">
-                         {{ total_items|pluralize }} сумма {{ cart.get_total_price }} Uah
+                          сумма {{ cart.get_total_price }} Uah
                     </a>
                 {% else %}
-                    <span class="glyphicon glyphicon-shopping-cart" id="carticon"> 0 </span>
+                    <span class="glyphicon glyphicon-shopping-cart" id="carticon"></span>
                 {% endif %}
                 {% endwith %}
             {% else %}
                 Ви не авторізовані.
                 {% with total_items=cart|length %}
                 {% if cart|length > 0 %}
-                    <span class="glyphicon glyphicon-shopping-cart" id="carticon"></span>
+
                     <a href="{% url "cart1:cart_detail" %}">
+                        <span class="glyphicon glyphicon-shopping-cart" id="carticon"></span>
                         {{ total_items }} {{ total_items|pluralize }}, на сумму {{ cart.get_total_price }} Uah
                     </a>
                 {% else %}
-                    <span class="glyphicon glyphicon-shopping-cart" id="carticon"> 0 </span>
+                    <span class="glyphicon glyphicon-shopping-cart" id="carticon"></span>
                 {% endif %}
                 {% endwith %}
             {% endif %}
