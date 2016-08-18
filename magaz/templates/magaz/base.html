@@ -85,8 +85,8 @@ $('body,html').animate({scrollTop:0},800);
         <div id="navbar" class="collapse navbar-collapse">
              <div class="nav pull-right" id="nav_log">
             {% if user.is_authenticated %}
-                 Ви увійшли, як  <strong>{% firstof user.get_short_name user.get_username %}</strong>
-                 <a class="btn btn-default" href="{% url 'logout' %}">вийти</a>
+                 <div class="navbar-text navbar-right">Ви увійшли, як  <strong>{% firstof user.get_short_name user.get_username %}</strong></div>
+
                 {% with total_items=cart|length %}
                 {% if cart|length > 0 %}
                     <div id="carthead" class="nav pull-right">
@@ -102,7 +102,7 @@ $('body,html').animate({scrollTop:0},800);
                 {% endif %}
                 {% endwith %}
             {% else %}
-                Ви не авторізовані
+                <div class="navbar-text navbar-right">Ви не авторізовані</div>
                 {% with total_items=cart|length %}
                 {% if cart|length > 0 %}
                     <div id="carthead" class="nav pull-right">
@@ -126,9 +126,11 @@ $('body,html').animate({scrollTop:0},800);
             <li><a href="{% url 'about' %}">Про нас</a></li>
             <li><a href="{% url 'xxx' %}">Блог</a> </li>
             <li><a href="/photologue/">Галереея</a> </li>
-            <li><a href="/admin/">admin</a> </li>
             <li><a href="/shop/">Магазин</a> </li>
-            <li class="dropdown">
+            {% if user.is_authenticated %}
+              <li><a href="{% url 'logout' %}">Вихід</a></li>
+              {% else %}
+              <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   Вхід <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -138,6 +140,9 @@ $('body,html').animate({scrollTop:0},800);
                 <li><a href="/register">реєстрація</a></li>
               </ul>
             </li>
+              {% endif %}
+
+
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -159,7 +164,7 @@ $('body,html').animate({scrollTop:0},800);
 
       <div class="foot">
       <footer>
-        <span>&copy; 2016 Зроблено на Сихові &middot; <a href="https://www.facebook.com/profile.php?id=100007905615689">Андрій Війтик</a> &middot; <a href="https://www.facebook.com/SferaLaser">Сфера-Лазер</a></span>
+        &copy; 2016 Зроблено на Сихові &middot; <a href="https://www.facebook.com/profile.php?id=100007905615689">Андрій Війтик</a> &middot; <a href="https://www.facebook.com/SferaLaser">Сфера-Лазер</a>
       </footer>
     </div>
 
