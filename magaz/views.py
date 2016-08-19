@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404
+from magaz.forms import CabinetForm
 from magaz.models import Prises, Category
 from cart1.forms import CartAddProductsForm
 from cart1.cart import Cart
+from django.contrib.auth.models import User
 
 
 
@@ -29,3 +31,23 @@ def show_goods(request, good_id):
     cart_product_form = CartAddProductsForm()
     cart= Cart(request)
     return render(request, 'magaz/good.html', {'prices': prices, 'cart_product_form': cart_product_form, 'cart': cart})
+
+
+def cabinet(request):
+    if request.method == 'POST':
+        cabinet_form = CabinetForm(request.POST)
+        user = User
+
+        if cabinet_form.is_valid():
+            profile = cabinet_form.save(commit=False)
+            #profile.user = user
+
+            if 'avatar' is request.FILES:
+                profile.avatar = request.FILES['avatar']
+            profile.save()
+        else:
+            print(cabinet_form.errors)
+    else:
+        cabinet_form = CabinetForm()
+    return render(request, 'magaz/cabinet.html', {'cabinet_form': cabinet_form})
+

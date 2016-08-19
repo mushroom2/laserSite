@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 
@@ -36,3 +37,16 @@ class Prises (models.Model):
         else:
             return self.good_about
 
+
+class MyUser(models.Model):
+    user = models.OneToOneField(User)
+
+    site = models.URLField(blank=True)
+    skype = models.CharField(max_length=60, blank=True)
+    profession = models.CharField(max_length=200, blank=True)
+    numb = models.IntegerField('numb', blank=True, default=None)
+    about = models.TextField(blank=True)
+    avatar = models.ImageField(upload_to='userprofile/', blank=True)
+
+    def __str__(self):
+        return self.user.username

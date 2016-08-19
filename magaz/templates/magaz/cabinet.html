@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Кабінет</title>
+</head>
+<body>
+{% extends 'magaz/base.html' %}
+{% block content %}
+    <p><strong> Ім'я: </strong> {{ user.username }}</p>
+    <p><strong> Електронна адреса: </strong>{{ user.email }}</p>
+    <p>
+        {{ cabinet_form.as_p }}
+    </p>
+
+{% endblock %}
+</body>
+</html>
