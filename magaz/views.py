@@ -36,14 +36,13 @@ def show_goods(request, good_id):
 def cabinet(request):
     if request.method == 'POST':
         cabinet_form = CabinetForm(request.POST)
-        user = User
-        user = request.user
+        user = User.objects.get(pk=request.user.id)
 
         if cabinet_form.is_valid():
             profile = cabinet_form.save(commit=False)
             profile.user = user
 
-            if 'avatar' is request.FILES:
+            if 'avatar' in request.FILES:
                 profile.avatar = request.FILES['avatar']
             profile.save()
         else:

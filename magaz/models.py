@@ -39,14 +39,14 @@ class Prises (models.Model):
 
 
 class MyUser(models.Model):
-    user = models.OneToOneField(User)
+    user = models.OneToOneField(User, primary_key=True)
 
-    site = models.URLField(blank=True)
+    site = models.CharField(blank=True, verbose_name='Сайт', max_length=150)
     skype = models.CharField(max_length=60, blank=True)
-    profession = models.CharField(max_length=200, blank=True)
-    numb = models.IntegerField('numb', blank=True, default=None)
-    about = models.TextField(blank=True)
-    avatar = models.ImageField(upload_to='userprofile/', blank=True)
+    profession = models.CharField(max_length=200, blank=True, verbose_name='профессія')
+    numb = models.CharField(blank=True, max_length=15, verbose_name='номер телефона')
+    about = models.TextField(blank=True, verbose_name='про себе')
+    avatar = models.ImageField(upload_to='userprofile/', blank=True, verbose_name='фото')
 
     def __str__(self):
         return self.user.username
