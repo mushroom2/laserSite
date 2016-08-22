@@ -9,9 +9,14 @@
 {% block content %}
     <p><strong> Ім'я: </strong> {{ user.username }}</p>
     <p><strong> Електронна адреса: </strong>{{ user.email }}</p>
-    <p>
+
+        <form class="form-group" action="{% url 'cabinet' %}" method="post">
+        {% csrf_token %}
         {{ cabinet_form.as_p }}
-    </p>
+        <input type="submit" name="submit" value="change" />
+        </form>
+
+
 
 {% endblock %}
 </body>

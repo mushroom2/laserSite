@@ -37,10 +37,11 @@ def cabinet(request):
     if request.method == 'POST':
         cabinet_form = CabinetForm(request.POST)
         user = User
+        user = request.user
 
         if cabinet_form.is_valid():
             profile = cabinet_form.save(commit=False)
-            #profile.user = user
+            profile.user = user
 
             if 'avatar' is request.FILES:
                 profile.avatar = request.FILES['avatar']
