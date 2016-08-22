@@ -10,11 +10,27 @@
     <p><strong> Ім'я: </strong> {{ user.username }}</p>
     <p><strong> Електронна адреса: </strong>{{ user.email }}</p>
 
-        <form class="form-group" action="{% url 'cabinet' %}" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ cabinet_form.as_p }}
-        <input type="submit" name="submit" value="change" />
+    <div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                Зміна данних
+              </a>
+            </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse">
+      <div class="panel-body">
+        <form class="form-group-lg" action="{% url 'cabinet' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ cabinet_form.as_p }}
+            <input type="submit" name="submit" value="change" />
         </form>
+      </div>
+    </div>
+    </div>
+    </div>
+
     <p>
     {{ user.myuser.avatar }}
     </p>
