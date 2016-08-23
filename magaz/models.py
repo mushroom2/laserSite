@@ -43,8 +43,8 @@ class MyUser(models.Model):
 
     site = models.CharField(blank=True, verbose_name='Сайт', max_length=150)
     skype = models.CharField(max_length=60, blank=True)
-    profession = models.CharField(max_length=200, blank=True, verbose_name='профессія')
-    numb = models.CharField(blank=True, max_length=15, verbose_name='номер телефона')
+    profession = models.CharField(max_length=200, blank=True, verbose_name='професія')
+    numb = models.CharField(blank=True, max_length=15, verbose_name='номер телефону')
     about = models.TextField(blank=True, verbose_name='про себе')
     avatar = models.ImageField(upload_to='userprofile/', blank=True, verbose_name='фото')
 

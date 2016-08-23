@@ -7,9 +7,26 @@
 <body>
 {% extends 'magaz/base.html' %}
 {% block content %}
+     <div id="kabinetform" class="col-md-4">
     <p><strong> Ім'я: </strong> {{ user.username }}</p>
     <p><strong> Електронна адреса: </strong>{{ user.email }}</p>
+    <p><strong> Сайт:</strong> {{ user.myuser.site }}</p>
+    <p><strong> Професія:</strong> {{ user.myuser.profession }}</p>
+    <p><strong> Номер Телефону:</strong> {{ user.myuser.numb }}</p>
+    <p><strong> Про себе:</strong> {{ user.myuser.about }}</p>
+     </div>
 
+     <div id="kabinetform" class="col-md-4">
+     <h4>Історія покупок</h4>
+     <p> Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.</p>
+     </div>
+
+    <div class="col-md-3 pull-right" id="kabinetform">
+    <p><strong> Зображення профілю:</strong><img src="{{ user.myuser.avatar.url }}" width="100"></p>
+    </div>
+    <div class="row"></div>
+
+<div class="col-md-8">
     <div class="panel-group" id="accordion">
   <div class="panel panel-default">
     <div class="panel-heading">
@@ -21,7 +38,7 @@
     </div>
     <div id="collapseOne" class="panel-collapse collapse">
       <div class="panel-body">
-        <form class="form-group-lg" action="{% url 'cabinet' %}" method="post" enctype="multipart/form-data">
+        <form class="form" action="{% url 'cabinet' %}" method="post" enctype="multipart/form-data" id="kabinetform">
             {% csrf_token %}
             {{ cabinet_form.as_p }}
             <input type="submit" name="submit" value="change" />
@@ -30,12 +47,7 @@
     </div>
     </div>
     </div>
-
-    <p>
-    {{ user.myuser.avatar }}
-    </p>
-
-
+</div>
 {% endblock %}
 </body>
 </html>

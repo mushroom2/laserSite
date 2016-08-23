@@ -128,7 +128,15 @@ $('body,html').animate({scrollTop:0},800);
             <li><a href="/photologue/">Галереея</a> </li>
             <li><a href="/shop/">Магазин</a> </li>
             {% if user.is_authenticated %}
-              <li><a href="{% url 'logout' %}">Вихід</a></li>
+                 <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    Профіль <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    <li><a href="{% url 'cabinet' %}">Ососбистий кабінет</a></li>
+                    <li class="divider"></li>
+                    <li><a href="{% url 'logout' %}">Вихід</a></li>
+              </ul>
+
               {% else %}
               <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
