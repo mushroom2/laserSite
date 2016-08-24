@@ -6,6 +6,7 @@
 </head>
 <body>
 {% extends 'magaz/base.html' %}
+{% load staticfiles %}
 {% block content %}
      <div id="kabinetform" class="col-md-4">
     <p><strong> Ім'я: </strong> {{ user.username }}</p>
@@ -22,7 +23,12 @@
      </div>
 
     <div class="col-md-3 pull-right" id="kabinetform">
-    <p><strong> Зображення профілю:</strong><img src="{{ user.myuser.avatar.url }}" width="100"></p>
+   <strong> Зображення профілю:</strong>
+        {% if user.myuser.avatar %}
+            <img src="{{ user.myuser.avatar.url }}" width="100">
+        {% else %}
+            <img src="{% static 'blog/default_user.png' %}" width="100">
+        {% endif %}
     </div>
     <div class="row"></div>
 
