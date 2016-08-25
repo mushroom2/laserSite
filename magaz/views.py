@@ -46,8 +46,10 @@ def siteform(request):
         user = User.objects.get(pk=request.user.id)
         site_form = SiteMiniForm(request.POST)
         if site_form.is_valid():
-            MyUser.site = site_form.save(commit=False)
-            MyUser.site.save()
+            profile = site_form.save(commit=False)
+            profile.user = user
+            profile.user.save()
+            profile.save()
             return HttpResponseRedirect('/shop/cabinet')
     else:
         site_form = SiteMiniForm()
@@ -56,11 +58,14 @@ def siteform(request):
 
 def skypeform(request):
     if request.method == 'POST':
-        user = User.objects.get(pk=request.user.id)
         skype_form = SkypeMiniForm(request.POST)
         if skype_form.is_valid():
-            MyUser.skype = skype_form.save(commit=False)
-            MyUser.user.skype.save()
+            user = request.user
+            profile = skype_form.save(commit=False)
+            profile.user = user
+            profile.user.save()
+            profile.save()
+
             return HttpResponseRedirect('/shop/cabinet')
     else:
         skype_form = SkypeMiniForm()
