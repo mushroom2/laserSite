@@ -22,8 +22,8 @@ def home(request):
 
 
 def about(request):
-    cart= Cart(request)
-    partners= Partners.objects.all()
+    cart = Cart(request)
+    partners = Partners.objects.all()
     form = SimpleForm(request.POST)
     return render(request, 'blog/about.html', {'cart': cart, 'partners': partners, 'form': form})
 

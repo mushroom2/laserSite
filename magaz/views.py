@@ -1,6 +1,7 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
-from magaz.forms import CabinetForm
-from magaz.models import Prises, Category
+from magaz.forms import *
+from magaz.models import Prises, Category, MyUser
 from cart1.forms import CartAddProductsForm
 from cart1.cart import Cart
 from django.contrib.auth.models import User
@@ -34,6 +35,38 @@ def show_goods(request, good_id):
 
 
 def cabinet(request):
+    cabinet = 'cabinet'
+    sif = SiteMiniForm(request.POST)
+    skf = SkypeMiniForm(request.POST)
+    return render(request, 'magaz/cabinet.html', {'cabinet': cabinet, 'sif': sif, 'skf': skf})
+
+
+def siteform(request):
+    if request.method == 'POST':
+        user = User.objects.get(pk=request.user.id)
+        site_form = SiteMiniForm(request.POST)
+        if site_form.is_valid():
+            MyUser.site = site_form.save(commit=False)
+            MyUser.site.save()
+            return HttpResponseRedirect('/shop/cabinet')
+    else:
+        site_form = SiteMiniForm()
+    return render(request, 'magaz/forms/site.html', {'site_form': site_form})
+
+
+def skypeform(request):
+    if request.method == 'POST':
+        user = User.objects.get(pk=request.user.id)
+        skype_form = SkypeMiniForm(request.POST)
+        if skype_form.is_valid():
+            MyUser.skype = skype_form.save(commit=False)
+            MyUser.user.skype.save()
+            return HttpResponseRedirect('/shop/cabinet')
+    else:
+        skype_form = SkypeMiniForm()
+    return render(request, 'magaz/forms/skype.html', {'skype_form': skype_form})
+
+"""
     if request.method == 'POST':
         cabinet_form = CabinetForm(request.POST)
         user = User.objects.get(pk=request.user.id)
@@ -49,5 +82,6 @@ def cabinet(request):
             print(cabinet_form.errors)
     else:
         cabinet_form = CabinetForm()
-    return render(request, 'magaz/cabinet.html', {'cabinet_form': cabinet_form})
+"""
+
 
