@@ -42,34 +42,35 @@ def cabinet(request):
 
 
 def siteform(request):
+    user = request.user
     if request.method == 'POST':
-        user = User.objects.get(pk=request.user.id)
         site_form = SiteMiniForm(request.POST)
         if site_form.is_valid():
-            profile1 = site_form.save(commit=False)
-            profile1.user = user
-            profile1.user.save()
-            profile1.save()
+            sitesave = site_form.save(commit=False)
+            sitesave.user = user
+            sitesave.site = request.POST['site']
+            sitesave.save()
             return HttpResponseRedirect('/shop/cabinet')
     else:
-        site_form = SiteMiniForm()
-    return render(request, 'magaz/forms/site.html', {'site_form': site_form})
+        site_obj = MyUser.objects.get(user=request.user)
+        site_form = SiteMiniForm(instance= site_obj)
+        return render(request, 'magaz/forms/site.html', {'site_form': site_form})
 
 
 def skypeform(request):
+    user = request.user
     if request.method == 'POST':
         skype_form = SkypeMiniForm(request.POST)
         if skype_form.is_valid():
-            user = request.user
-            profile2 = skype_form.save(commit=False)
-            profile2.user = user
-            profile2.user.save()
-            profile2.save()
-
+            skypesave = skype_form.save(commit=False)
+            skypesave.user = user
+            skypesave.skype = request.POST['skype']
+            skypesave.save()
             return HttpResponseRedirect('/shop/cabinet')
     else:
-        skype_form = SkypeMiniForm()
-    return render(request, 'magaz/forms/skype.html', {'skype_form': skype_form})
+        skype_obj = MyUser.objects.get(user=request.user)
+        skype_form = SkypeMiniForm(instance= skype_obj)
+        return render(request, 'magaz/forms/skype.html', {'skype_form': skype_form})
 
 """
     if request.method == 'POST':
