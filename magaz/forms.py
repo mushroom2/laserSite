@@ -1,5 +1,5 @@
 from django import forms
-from magaz.models import MyUser
+from magaz.models import *
 
 #общая "большая" форма
 """
@@ -11,13 +11,13 @@ class CabinetForm(forms.ModelForm):
 
 class SiteMiniForm(forms.ModelForm):
     class Meta:
-        model = MyUser
+        model = SiteUser
         fields = ('site',)
 
 
 class SkypeMiniForm(forms.ModelForm):
     class Meta:
-        model = MyUser
+        model = SkypeUser
         fields = ('skype',)
 
 

@@ -40,7 +40,6 @@ class Prises (models.Model):
 
 class MyUser(models.Model):
     user = models.OneToOneField(User, primary_key=True)
-
     site = models.CharField(blank=True, verbose_name='Сайт', max_length=150)
     skype = models.CharField(max_length=60, blank=True)
     profession = models.CharField(max_length=200, blank=True, verbose_name='професія')
@@ -50,3 +49,18 @@ class MyUser(models.Model):
 
     def __str__(self):
         return self.user.username
+
+
+class SiteUser(models.Model):
+    user = models.OneToOneField(User, primary_key=True)
+    site = models.CharField(blank=True, verbose_name='Сайт', max_length=150)
+
+    def __str__(self):
+        return self.user.username
+
+
+class SkypeUser(models.Model):
+    user = models.OneToOneField(User, primary_key=True)
+    skype = models.CharField(max_length=60, blank=True)
+
+
