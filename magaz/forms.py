@@ -23,23 +23,23 @@ class SkypeMiniForm(forms.ModelForm):
 
 class ProfessionMiniForm(forms.ModelForm):
     class Meta:
-        model = MyUser
+        model = ProfessionalUser
         fields = ('profession',)
 
 
 class NumbMiniForm(forms.ModelForm):
     class Meta:
-        model = MyUser
+        model = NumbUser
         fields = ('numb',)
 
 
 class AboutMiniForm(forms.ModelForm):
     class Meta:
-        model = MyUser
+        model = AboutUser
         fields = ('about',)
 
 
 class AvatarMiniForm(forms.ModelForm):
     class Meta:
-        model = MyUser
+        model = AvatarUser
         fields = ('avatar',)

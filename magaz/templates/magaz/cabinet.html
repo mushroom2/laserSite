@@ -13,9 +13,9 @@
     <p><strong> Електронна адреса: </strong>{{ user.email }}</p>
     <p><strong> Сайт:</strong> {{ user.siteuser.site }}</p>
     <p><strong> Skype:</strong> {{ user.skypeuser.skype }}</p>
-    <p><strong> Професія:</strong> {{ user.myuser.profession }}</p>
-    <p><strong> Номер Телефону:</strong> {{ user.myuser.numb }}</p>
-    <p><strong> Про себе:</strong> {{ user.myuser.about }}</p>
+    <p><strong> Професія:</strong> {{ user.professionaluser.profession }}</p>
+    <p><strong> Номер Телефону:</strong> {{ user.numbuser.numb }}</p>
+    <p><strong> Про себе:</strong> {{ user.aboutuser.about }}</p>
      </div>
 
      <div id="kabinetform" class="col-md-4">
@@ -25,8 +25,8 @@
 
     <div class="col-md-3 pull-right" id="kabinetform">
    <strong> Зображення профілю:</strong>
-        {% if user.myuser.avatar %}
-            <img src="{{ user.myuser.avatar.url }}" width="100">
+        {% if user.avataruser.avatar %}
+            <img src="{{ user.avataruser.avatar.url }}" width="100">
         {% else %}
             <img src="{% static 'blog/default_user.png' %}" width="100">
         {% endif %}
@@ -55,6 +55,32 @@
             {{ skf }}
             <input type="submit" value="змінити" />
         </form>
+
+           <form class="form" action="{% url 'professionform' %}" method="post"  id="kabinetform">
+            {% csrf_token %}
+            {{ prf }}
+            <input type="submit" value="змінити" />
+        </form>
+
+           <form class="form" action="{% url 'numbform' %}" method="post"  id="kabinetform">
+            {% csrf_token %}
+            {{ nmf }}
+            <input type="submit" value="змінити" />
+        </form>
+
+           <form class="form" action="{% url 'aboutform' %}" method="post"  id="kabinetform">
+            {% csrf_token %}
+            {{ abf }}
+            <input type="submit" value="змінити" />
+        </form>
+
+          <form class="form" action="{% url 'avatarform' %}" method="post"  id="kabinetform" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ avf }}
+            <input type="submit" value="змінити" />
+        </form>
+
+
       </div>
     </div>
     </div>

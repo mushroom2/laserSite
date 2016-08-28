@@ -1,5 +1,5 @@
 from django.contrib import admin
-from magaz.models import Prises, Category, MyUser
+from magaz.models import *
 
 
 class CatAdmin(admin.ModelAdmin):
@@ -14,4 +14,9 @@ class ShopAdmin(admin.ModelAdmin):
 
 admin.site.register(Prises, ShopAdmin)
 
-admin.site.register(MyUser)
+admin.site.register(SiteUser)
+admin.site.register(SkypeUser)
+admin.site.register(ProfessionalUser)
+admin.site.register(NumbUser)
+admin.site.register(AboutUser)
+admin.site.register(AvatarUser)

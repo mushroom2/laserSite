@@ -63,4 +63,38 @@ class SkypeUser(models.Model):
     user = models.OneToOneField(User, primary_key=True)
     skype = models.CharField(max_length=60, blank=True)
 
+    def __str__(self):
+        return self.user.username
+
+
+class ProfessionalUser(models.Model):
+    user = models.OneToOneField(User, primary_key=True)
+    profession = models.CharField(max_length=200, blank=True, verbose_name='професія')
+
+    def __str__(self):
+        return self.user.username
+
+
+class NumbUser(models.Model):
+    user = models.OneToOneField(User, primary_key=True)
+    numb = models.CharField(blank=True, max_length=15, verbose_name='номер телефону')
+
+    def __str__(self):
+        return self.user.username
+
+
+class AboutUser(models.Model):
+    user = models.OneToOneField(User, primary_key=True)
+    about = models.TextField(blank=True, verbose_name='про себе')
+
+    def __str__(self):
+        return self.user.username
+
+
+class AvatarUser(models.Model):
+    user = models.OneToOneField(User, primary_key=True)
+    avatar = models.ImageField(upload_to='userprofile/', blank=True, verbose_name='фото')
+
+    def __str__(self):
+        return self.user.username
 
