@@ -15,13 +15,14 @@
      <hr>
     <p><strong> Ім'я  </strong> {{ user.username }}</p>
     <p><strong> Електронна адреса  </strong>{{ user.email }}</p>
+     <div id="userdata">
     <p><strong> Сайт </strong> {{ user.siteuser.site }}
         {% if user.siteuser.site %}
-            <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
+            <button class="btn btn-primary btn-xs pull-right" data-toggle="modal" data-target="#myModal" id="userdatabutoon">
                 змінити
             </button>
         {% else %}
-            <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal">
+            <button class="btn btn-success btn-xs pull-right" data-toggle="modal" data-target="#myModal" id="userdatabutoon">
                 додати
             </button>
         {% endif %}
@@ -51,11 +52,11 @@
 
     <p><strong> Skype </strong> {{ user.skypeuser.skype }}
         {% if user.skypeuser.skype %}
-            <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal1">
+            <button class="btn btn-primary btn-xs pull-right" data-toggle="modal" data-target="#myModal1">
                 змінити
             </button>
         {% else %}
-            <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal1">
+            <button class="btn btn-success btn-xs pull-right" data-toggle="modal" data-target="#myModal1">
                 додати
             </button>
         {% endif %}
@@ -84,11 +85,11 @@
 
     <p><strong> Професія </strong> {{ user.professionaluser.profession }}
         {% if user.professionaluser.profession %}
-            <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal2">
+            <button class="btn btn-primary btn-xs pull-right" data-toggle="modal" data-target="#myModal2">
                 змінити
             </button>
         {% else %}
-            <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal2">
+            <button class="btn btn-success btn-xs pull-right" data-toggle="modal" data-target="#myModal2">
                 додати
             </button>
         {% endif %}
@@ -117,11 +118,11 @@
 
     <p><strong> Номер Телефону </strong> {{ user.numbuser.numb }}
         {% if user.numbuser.numb %}
-            <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal3">
+            <button class="btn btn-primary btn-xs pull-right" data-toggle="modal" data-target="#myModal3">
                 змінити
             </button>
         {% else %}
-            <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal3">
+            <button class="btn btn-success btn-xs pull-right" data-toggle="modal" data-target="#myModal3">
                 додати
             </button>
         {% endif %}
@@ -150,11 +151,11 @@
 
     <p><strong> Про себе </strong> {{ user.aboutuser.about }}
         {% if user.aboutuser.about %}
-            <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal4">
+            <button class="btn btn-primary btn-xs pull-right" data-toggle="modal" data-target="#myModal4">
                 змінити
             </button>
         {% else %}
-            <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal4">
+            <button class="btn btn-success btn-xs pull-right" data-toggle="modal" data-target="#myModal4">
                 додати
             </button>
         {% endif %}
@@ -181,11 +182,11 @@
 </div>
       <p><strong> Зображення профілю </strong>
         {% if user.avataruser.avatar %}
-            <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal5">
+            <button class="btn btn-primary btn-xs pull-right" data-toggle="modal" data-target="#myModal5">
                 змінити
             </button>
         {% else %}
-            <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal5">
+            <button class="btn btn-success btn-xs pull-right" data-toggle="modal" data-target="#myModal5">
                 додати
             </button>
         {% endif %}
@@ -211,6 +212,7 @@
   </div>
 </div>
      </div>
+     </div>
 
      <div id="kabinetform" class="col-md-4">
      <h4>Історія покупок</h4>
@@ -220,9 +222,9 @@
     <div class="col-md-3 pull-right" id="kabinetform">
 
         {% if user.avataruser.avatar %}
-            <img src="{{ user.avataruser.avatar.url }}" width="200">
+            <img src="{{ user.avataruser.avatar.url }}" width="200" id="userpic">
         {% else %}
-            <img src="{% static 'blog/default_user.png' %}" width="200">
+            <img src="{% static 'blog/default_user.png' %}" width="200" id="userpic">
         {% endif %}
     </div>
     <div class="row"></div>

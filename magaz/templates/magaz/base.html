@@ -85,7 +85,9 @@ $('body,html').animate({scrollTop:0},800);
         <div id="navbar" class="collapse navbar-collapse">
              <div class="nav pull-right" id="nav_log">
             {% if user.is_authenticated %}
-                 <div class="navbar-text navbar-right">Ви увійшли, як  <strong>{% firstof user.get_short_name user.get_username %}</strong></div>
+                 <div class="navbar-text navbar-right" id="usermoveup">Ви увійшли, як  <strong>{% firstof user.get_short_name user.get_username %}</strong>
+                 <img src="{{ user.avataruser.avatar.url }}" width="30" id="userpic">
+                 </div>
 
                 {% with total_items=cart|length %}
                 {% if cart|length > 0 %}
@@ -102,7 +104,9 @@ $('body,html').animate({scrollTop:0},800);
                 {% endif %}
                 {% endwith %}
             {% else %}
-                <div class="navbar-text navbar-right">Ви не авторизовані</div>
+                <div class="navbar-text navbar-right" id="usermoveup">Ви не авторизовані
+                <img src="{% static 'blog/default_user.png' %}" width="30" id="userpic">
+                </div>
                 {% with total_items=cart|length %}
                 {% if cart|length > 0 %}
                     <div id="carthead" class="nav pull-right">
@@ -156,17 +160,11 @@ $('body,html').animate({scrollTop:0},800);
       </div>
     </nav>
 
-
     <div class="container main-content">
-
-
-
     {% autoescape off %}
         {% block content %}
         {% endblock %}
     {% endautoescape %}
-
-
 
     </div><!-- /.container -->
 

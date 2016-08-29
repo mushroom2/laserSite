@@ -288,3 +288,16 @@ border-radius: 10px;
     text-align: center;
     margin: 15px;
 }
+#userdata {
+    text-align: left;
+}
+#userdatabutoon{
+    text-align: right;
+}
+
+#userpic{
+    border-radius: 10px;
+}
+#usermoveup{
+margin: 4px;
+}
