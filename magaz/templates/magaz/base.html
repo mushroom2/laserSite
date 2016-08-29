@@ -86,7 +86,11 @@ $('body,html').animate({scrollTop:0},800);
              <div class="nav pull-right" id="nav_log">
             {% if user.is_authenticated %}
                  <div class="navbar-text navbar-right" id="usermoveup">Ви увійшли, як  <strong>{% firstof user.get_short_name user.get_username %}</strong>
+                 {% if user.avataruser.avatar  %}
                  <img src="{{ user.avataruser.avatar.url }}" width="30" id="userpic">
+                 {% else %}
+                 <img src="{% static 'blog/default_user.png' %}" width="30" id="userpic">
+                 {% endif %}
                  </div>
 
                 {% with total_items=cart|length %}
