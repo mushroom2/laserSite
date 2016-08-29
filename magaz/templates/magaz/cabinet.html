@@ -8,7 +8,11 @@
 {% extends 'magaz/base.html' %}
 {% load staticfiles %}
 {% block content %}
+    <h1>Особистий кабінет</h1>
+    <hr>
      <div id="kabinetform" class="col-md-4">
+     <h4>Особисті данні</h4>
+     <hr>
     <p><strong> Ім'я  </strong> {{ user.username }}</p>
     <p><strong> Електронна адреса  </strong>{{ user.email }}</p>
     <p><strong> Сайт </strong> {{ user.siteuser.site }}
@@ -186,7 +190,6 @@
             </button>
         {% endif %}
     </p>
-    </p>
      <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel5" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -211,10 +214,11 @@
 
      <div id="kabinetform" class="col-md-4">
      <h4>Історія покупок</h4>
+     <hr>
      <p> Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.</p>
      </div>
     <div class="col-md-3 pull-right" id="kabinetform">
-        <p><strong> Зображення профілю </strong></p>
+
         {% if user.avataruser.avatar %}
             <img src="{{ user.avataruser.avatar.url }}" width="200">
         {% else %}
