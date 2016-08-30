@@ -18,10 +18,10 @@
         <p id="in_magaz"> передзамовлення</p>
     {% endif %}
     <hr>
-        <form action="{% url "cart1:cart_add" prices.id %}" method="post">
+        <form action="{% url "cart1:cart_add" prices.id %}" method="post" class="form-inline">
             {{ cart_product_form }}
             {% csrf_token %}
-            <input type="submit" value="Add to cart">
+            <input type="submit" value="Додати в кошик" class="btn btn-primary btn-sm">
         </form>
     <hr>
 
