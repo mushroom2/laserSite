@@ -14,9 +14,32 @@ class ShopAdmin(admin.ModelAdmin):
 
 admin.site.register(Prises, ShopAdmin)
 
-admin.site.register(SiteUser)
-admin.site.register(SkypeUser)
-admin.site.register(ProfessionalUser)
-admin.site.register(NumbUser)
-admin.site.register(AboutUser)
-admin.site.register(AvatarUser)
+
+class SiteUserAdmin(admin.ModelAdmin):
+    list_display = ('user', 'site')
+admin.site.register(SiteUser, SiteUserAdmin)
+
+
+class SkypeUserAdmin(admin.ModelAdmin):
+    list_display = ('user', 'skype')
+admin.site.register(SkypeUser, SkypeUserAdmin)
+
+
+class ProfessionUserAdmin(admin.ModelAdmin):
+    list_display = ('user', 'profession')
+admin.site.register(ProfessionalUser, ProfessionUserAdmin)
+
+
+class NumbUserAdmin(admin.ModelAdmin):
+    list_display = ('user', 'numb')
+admin.site.register(NumbUser, NumbUserAdmin)
+
+
+class AboutUserAdmin(admin.ModelAdmin):
+    list_display = ('user', 'about')
+admin.site.register(AboutUser,  AboutUserAdmin)
+
+
+class AvatarUserAdmin(admin.ModelAdmin):
+    list_display = ('user', 'avatar')
+admin.site.register(AvatarUser, AvatarUserAdmin)
