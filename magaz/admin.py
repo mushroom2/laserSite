@@ -22,7 +22,7 @@ admin.site.register(SiteUser, SiteUserAdmin)
 
 class SkypeUserAdmin(admin.ModelAdmin):
     list_display = ('user', 'skype')
-admin.site.register(SkypeUser, SkypeUserAdmin)
+admin.site.register(SkypeUser, SkypeUserAdmin )
 
 
 class ProfessionUserAdmin(admin.ModelAdmin):
