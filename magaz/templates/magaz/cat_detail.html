@@ -7,23 +7,14 @@
 <h1>{{ category.cat_name }}</h1>
 <hr>
 {% for prises in category.prises_set.all  %}
-
         <div class="row col-lg-6">
              <div class="shop-pr">
-
-                 <h5><a href="{% url 'prises' prises.id %}">{{ prises.good_name }}</a></h5>
-
+                <h5><a href="{% url 'prises' prises.id %}">{{ prises.good_name }}</a></h5>
                 <img src="{{ prises.pic.url }}" id="shop_pic">
                 <p>{{ prises.shortMagazText }}</p>
                 <p id="mass_price">{{ prises.good_price }} Грн.</p>
-                 <p><a class="btn btn-default" id="cat_btn1" href="{% url 'prises' prises.id %}" role="button"> Хочу купити!</a></p>
-
-
+                <p><a class="btn btn-default" id="cat_btn1" href="{% url 'prises' prises.id %}" role="button"> Купити </a></p>
              </div>
         </div>
-
-        </p>
-
-
 {% endfor %}
 {% endblock %}
