@@ -22,14 +22,12 @@
         <div class="slyder">
             {% if object.public_galleries %}
                 <div class="slyder">
-                <table id="img-slider">
+                <table align="center" id="img-slider">
 
                     {% for gallery in object.public_galleries %}
                         <tr>
                             <td>{% previous_in_gallery object gallery %}</td>
-
-	                        <td class="btn btn-default"><a href="{{ gallery.get_absolute_url }}"> назад </a></td>
-
+	                        <td> <a class="btn btn-primary" href="{{ gallery.get_absolute_url }}">назад</a></td>
 	                        <td>{% next_in_gallery object gallery %}</td>
                         </tr>
 					{% endfor %}

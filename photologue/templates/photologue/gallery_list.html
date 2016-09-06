@@ -1,12 +1,12 @@
 {% extends "photologue/root.html" %}
 {% load i18n %}
 
-{% block title %}Работы{% endblock %}
+{% block title %}наші роботи{% endblock %}
 
 {% block content %}
 
     <div class="row col-lg-12">
-        <h1 class="page-header">все альбомы</h1>
+        <h1 class="page-header">Галерея робіт</h1>
     </div>
 
 
@@ -18,14 +18,14 @@
                 {% if gallery.description %}<p>{{ gallery.description|safe }}</p>{% endif %}
                 <div class="row">
                 {% for photo in gallery.sample %}
-                    <div class="row col-lg-2">
+                    <div class="row col-lg-2" id="g_f">
                     <a href="{{ photo.get_absolute_url }}">
                          <img src="{{ photo.get_thumbnail_url }}" class="thumbnail" alt="{{ photo.title }}">
                     </a>
                     </div>
                 {% endfor %}
                 </div>
-            <div><a href="{{ gallery.get_absolute_url }}" class="btn btn-default">Дивитись більше</a></div>
+            <div><a href="{{ gallery.get_absolute_url }}" class="btn btn-primary">Дивитись більше</a></div>
             </div>
         {% endfor %}
     {% else %}

@@ -11,7 +11,7 @@
     margin-top: 10px;
 }
 a{
-    color: #FF0000;
+    color: #5a82c1;
 }
 
 h4{
@@ -78,7 +78,7 @@ hr{
 }
 #n_t{
     text-align: center;
-    color: #5a82c1;
+    color: #FF0000;
     font-size: 19pt;
 }
 #good_title{
@@ -88,26 +88,34 @@ hr{
 }
 #price_hot{
     text-align: center;
-    color: #c12e2a;
-    font-size: 32pt;
+    color: #FF0000;
+    font-size: 29pt;
 }
 #shop_pic{
-    height: 220px;
+    margin-top: 9px;
+    height: 110px;
+    left: 50%;
+    border-radius: 10px;
+}
+
+#good_pic {
+    margin-top: 9px;
+    height: 200px;
     left: 50%;
     border-radius: 10px;
 }
 
 .shop{
-    border: 4px solid dimgray;
-    background: #222222;
+    border: 3px solid #FF0000;
+    background: #ffffcc;
     padding: 15px;
     box-sizing: content-box;
-    height: 300px;
-    width: 400px;
+    height: 200px;
+    width: 200px;
     text-align: center;
     margin-top: 30px;
     margin-bottom: 30px;
-    margin-left: auto;
+    margin-left: 57px;
     border-radius: 10px;
 }
 
@@ -118,8 +126,9 @@ hr{
 }
 
 .onegood{
-    border: 4px solid dimgray;
-    background: #222222;
+    border: 4px solid #FF0000;
+    background: #ffffcc;
+    text-align: center;
     padding: 15px;
     box-sizing: content-box;
     margin-top: 15px;
@@ -136,10 +145,11 @@ hr{
 }
 #img-slider{
 
-    margin-left: 35%;
-    margin-right: 35%;
-    width: 350px;
-
+    table-layout: fixed;
+    width: 47%;
+    text-align: center;
+    border-collapse: separate;
+    border-spacing: 15px 15px;
 }
 
 #cat_btn{
@@ -149,11 +159,11 @@ hr{
 }
 
 .shop-pr{
-    border: 4px solid dimgray;
-    background: #222222;
+    border: 3px solid #FF0000;
+    background: #ffffcc;
     padding: 15px;
     box-sizing: content-box;
-    height: 400px;
+    height: 360px;
     width: 400px;
     text-align: center;
     margin-top: 30px;
@@ -172,9 +182,9 @@ hr{
     margin-right: 28%;
 }
 #new_product{
-    font-size: 32px;
+    font-size: 29px;
     text-align: center;
-    color: #dede6d;
+    color: #5a82c1;
 }
 
 .cart{
@@ -229,9 +239,9 @@ font-size:11px;
 border-radius: 10px;
 }
 #simpleform{
-    margin-top: 50px;
-    border: 4px solid dimgray;
-    background: #222222;
+
+    border: 3px solid #FF0000;
+    background: #ffffcc;
     border-radius: 10px;
     padding: 15px;
     text-align: center;
@@ -239,8 +249,8 @@ border-radius: 10px;
 }
 #thenks{
     margin-top: 50px;
-    border: 4px solid dimgray;
-    background: #222222;
+    border: 3px solid #FF0000;
+    background: #ffffcc;
     border-radius: 10px;
 }
 
@@ -262,8 +272,8 @@ border-radius: 10px;
 #centrform {
     /*  только для col-md-5 */
     margin-top: 50px;
-    border: 4px solid dimgray;
-    background: #222222;
+    border: 3px solid #FF0000;
+    background: #ffffcc;
     border-radius: 10px;
     padding: 15px;
     text-align: center;
@@ -280,14 +290,14 @@ border-radius: 10px;
     font-size: 14pt;
 }
 #carthead{
-    border: 3px solid #269abc;
+    border: 3px solid #ffffcc;
     border-radius: 10px;
     padding: 5px;
     text-align: center;
 }
 #kabinetform {
-    border: 4px solid dimgray;
-    background: #222222;
+    border: 3px solid #FF0000;
+    background: #ffffcc;
     border-radius: 10px;
     padding: 10px;
     text-align: center;
@@ -305,4 +315,7 @@ border-radius: 10px;
 }
 #usermoveup{
 margin: 4px;
+}
+#g_f{
+    margin: 15px;
 }

@@ -1,7 +1,7 @@
 {% extends "photologue/root.html" %}
 {% load i18n %}
 
-{% block title %}Наши работы{% endblock %}
+{% block title %}Наші роботи{% endblock %}
 
 {% block content %}
 
@@ -18,19 +18,20 @@
              {% for gallery in object_list %}
             <div class="row col-lg-12">
                 <h2><a href="{{ gallery.get_absolute_url }}">{{ gallery.title }}</a></h2>
-                <p class="muted"><small>Добавлено {{ gallery.date_added }}</small></p>
+                <p class="muted"><small>{{ gallery.date_added }}</small></p>
                 {% if gallery.description %}<p>{{ gallery.description|safe }}</p>{% endif %}
                 <div class="row">
                 {% for photo in gallery.sample %}
-                    <div class="row col-lg-2">
+                    <div class="row col-lg-2" id="g_f">
                     <a href="{{ photo.get_absolute_url }}">
                          <img src="{{ photo.get_thumbnail_url }}" class="thumbnail" alt="{{ photo.title }}">
                     </a>
                     </div>
                 {% endfor %}
-                 <div><a href="{{ gallery.get_absolute_url }}" class="btn btn-default">Дивитись більше</a></div>
-                </div>
             </div>
+                 <div>
+                     <p><a href="{{ gallery.get_absolute_url }}" class="btn btn-primary">Дивитись більше</a></p></div>
+                </div>
         {% endfor %}
     {% else %}
         <div class="row col-lg-12">{% trans "No galleries were found" %}.</div>
