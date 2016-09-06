@@ -43,38 +43,33 @@ Sfera-Laser
     <span class="sr-only">Next</span>
   </a>
 </div>
-
      <hr color="#f5f5f5">
-
         <div class="row">
         <div class="col-lg-4" id="img-f">
           <img class="img-circle" src="{% static 'blog/porezka.jpg' %}" alt="Generic placeholder image" width="200" height="200">
-          <h3>Лазерна порізка органични матеріалів</h3>
+          <h3>Лазерна порізка</h3>
+          <h3> </h3>
           <p>Основний напрямок порізки- це лазерна порізка Акрилу(від 1.5 до 10мм), також ми спеціалізуємось на порізці фанери (4-8мм) і поліпропілену. Працюємо як з власними, так і з вашими матеріалами.</p>
           <p><a class="btn btn-default" href="/photologue/gallery/porizka/" role="button">Альбом в галереї &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4" id="img-f">
           <img class="img-circle" src="{% static 'blog/zippo.jpg' %}" alt="Generic placeholder image" width="200" height="200">
-          <h3>Лазерне гравіювання на ваших виробах</h3>
+          <h3>Лазерне гравіювання</h3>
+          <h3> </h3>
           <p>Завдяки сучасному обладнання, та профессіанолізму наших працівників ми здійснюємо гравіювання різних видів складності на різних маитеріалах та виробах. А також ми надаєм послуги кирилізації клавіатур.</p>
           <p><a class="btn btn-default" href="/photologue/gallery/graviruvannya/" role="button">Свіжі замовлення &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4" id="img-f">
           <img class="img-circle" src="{% static 'blog/rek.jpg' %}" alt="Generic placeholder image" width="200" height="200">
-          <h3>Виготовлення рекламної продукції</h3>
-          <p>Завдяки нам, ви можете додати у свій бізнес елементи творчості та неповторності. Нащі інжинери реалізують будь-яку задачу, пов'язану з моделюванням та виробництвом.</p>
+          <h3>Пластикові підставки та торгове обладнання</h3>
+          <p>Нащі інжинери реалізують будь-яку задачу, пов'язану з моделюванням та виробництвом пластикових підставок та торгового обладнання</p>
           <p><a class="btn btn-default" href="/shop/" role="button">Дізнатись більше &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
-
     <hr color="white">
-
     <div class="new_photo">
-        <h4 class="n_ph">Cвіжі роботи</h4>
-
-
+        <h3 class="n_ph">Наші роботи</h3>
         <div class="row" id="n_p">
-
 		    {% for photo in imgs %}
                 <div class="col-md-2">
 		        <a href="{{ photo.get_absolute_url }}">
@@ -83,21 +78,14 @@ Sfera-Laser
                 </div>
 		    {% endfor %}
 		</div>
-
     </div>
-
     <hr>
-
 <div class="news">
 <h1>Новини</h1>
 <p id="n_t">
-    <span> Працює в тестовому режимі з початку літа.</span>
+    <span> Сайт працює в тестовому режимі з початку літа.</span>
 </p>
  <hr color="white">
-
-
-
-
 
     {% for article in news %}
     <div class="tit">

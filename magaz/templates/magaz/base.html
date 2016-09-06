@@ -11,7 +11,7 @@
       <meta name="description" content="">
       <meta name="author" content="">
 
-        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cyborg/bootstrap.min.css" rel="stylesheet" >
+        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/united/bootstrap.min.css" rel="stylesheet">
         <link href="{% static 'blog/style.css' %}" rel="stylesheet">
         <link href="{% static 'blog/favicon.ico' %}" rel="shortcut icon">
 
@@ -47,7 +47,7 @@ $('body,html').animate({scrollTop:0},800);
 </script>
   </head>
 
-  <body>
+  <body class="full">
 
 <DIV ID = "toTop" > ↑ Up ↑</DIV >
   <script>
@@ -71,7 +71,7 @@ $('body,html').animate({scrollTop:0},800);
   <script id="dsq-count-scr" src="//sferalaser.disqus.com/count.js" async></script>
 
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -157,14 +157,12 @@ $('body,html').animate({scrollTop:0},800);
               </ul>
             </li>
               {% endif %}
-
-
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
-    <div class="container main-content">
+    <div class="container main-content ">
     {% autoescape off %}
         {% block content %}
         {% endblock %}
