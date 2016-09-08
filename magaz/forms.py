@@ -43,3 +43,9 @@ class AvatarMiniForm(forms.ModelForm):
     class Meta:
         model = AvatarUser
         fields = ('avatar',)
+
+
+class PayGoodForm(forms.ModelForm):
+    class Meta:
+        model = GoodPay
+        fields = []

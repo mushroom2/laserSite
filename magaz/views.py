@@ -133,6 +133,20 @@ def avatarform(request):
         avatar_form = AvatarMiniForm()
     return render(request, 'magaz/forms/avatar.html', {'avatar_form': avatar_form})
 
+
+def just_pay_for_all(request):
+    cart = Cart(request)
+    user = request.user
+    if request.method == 'POST':
+        form = PayGoodForm(request.POST)
+        if form.is_valid():
+            for item in cart:
+                GoodPay.objects.create(
+                    user=user,
+                    prises=item['']
+            )
+
+    pass
 """
     if request.method == 'POST':
         cabinet_form = CabinetForm(request.POST)

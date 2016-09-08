@@ -98,3 +98,14 @@ class AvatarUser(models.Model):
     def __str__(self):
         return self.user.username
 
+
+class GoodPay(models.Model):
+    user = models.OneToOneField(User, primary_key=True)
+    prises = models.ForeignKey(Prises, related_name='history_of_pays')
+    date = models.DateTimeField(auto_now=True)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    quantity = models.PositiveIntegerField(default=1)
+
+    def __str__(self):
+        return self.user.username
+
