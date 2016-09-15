@@ -143,10 +143,12 @@ def just_pay_for_all(request):
             for item in cart:
                 GoodPay.objects.create(
                     user=user,
-                    prises=item['']
-            )
+                    prises=item['prise']
+                )
+            return render(request, {cart: 'cart', form: 'form'})
+        else:
+            form = PayGoodForm()
 
-    pass
 """
     if request.method == 'POST':
         cabinet_form = CabinetForm(request.POST)

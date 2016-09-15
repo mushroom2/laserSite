@@ -1,6 +1,21 @@
+
+/*   тут фоновое изображение
 .full {
     background: url("https://pp.vk.me/c637331/v637331751/cf68/GCPKsVkVxB0.jpg") no-repeat fixed center center / cover ;
 }
+*/
+.navbar-default {
+    background-color: #351309;
+    border-color: #351309;
+}
+
+.btn-primary {
+    background-color: #351309;
+    border-color: #000000;
+    color: #ffffff;
+}
+
+
 .main-content {
     margin-top: 40px;
 }
@@ -11,7 +26,7 @@
     margin-top: 10px;
 }
 a{
-    color: #5a82c1;
+    color: #FF0000;
 }
 
 h4{
@@ -64,21 +79,21 @@ h1{
 }
 
 hr{
-    border-color: #ff4e24;
+    border-color: #666666;
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
 .n_ph{
     text-align: center;
-    color: #5a82c1;
+    color: #351309;
 }
 #n_p{
     margin-left: 130px;
 }
 #n_t{
     text-align: center;
-    color: #FF0000;
+    color: #351309;
     font-size: 19pt;
 }
 #good_title{
@@ -106,8 +121,8 @@ hr{
 }
 
 .shop{
-    border: 3px solid #FF0000;
-    background: #ffffcc;
+    border: 2px solid #999999;
+    background: #e8e8e8;
     padding: 15px;
     box-sizing: content-box;
     height: 200px;
@@ -126,8 +141,8 @@ hr{
 }
 
 .onegood{
-    border: 4px solid #FF0000;
-    background: #ffffcc;
+    border: 2px solid #999999;
+    background: #e8e8e8;
     text-align: center;
     padding: 15px;
     box-sizing: content-box;
@@ -154,18 +169,19 @@ hr{
 
 #cat_btn{
     color: #fcf8e3;
-    background: #3e8f3e;
+    background: #351309;
     margin-top: 30px;
 }
 
 .shop-pr{
-    border: 3px solid #FF0000;
-    background: #ffffcc;
+    border: 2px solid #999999;
+    background: #e8e8e8;
     padding: 15px;
     box-sizing: content-box;
     height: 360px;
     width: 400px;
     text-align: center;
+    font-size: 10pt;
     margin-top: 30px;
     margin-bottom: 30px;
     margin-left: auto;
@@ -174,7 +190,7 @@ hr{
 
 #cat_btn1{
     color: #fcf8e3;
-    background: #3e8f3e;
+    background: #351309;
 }
 #one_pic{
     height: 500px;
@@ -213,8 +229,8 @@ hr{
 }
 
 #pre-home{
-    border: 3px solid #ff4e24;
-    background: #ffffcc;
+    border: 2px solid #999999;
+    background: #e8e8e8;
     color: #0e0e0e;
 }
 
@@ -240,8 +256,8 @@ border-radius: 10px;
 }
 #simpleform{
 
-    border: 3px solid #FF0000;
-    background: #ffffcc;
+    border: 2px solid #999999;
+    background: #e8e8e8;
     border-radius: 10px;
     padding: 15px;
     text-align: center;
@@ -249,8 +265,8 @@ border-radius: 10px;
 }
 #thenks{
     margin-top: 50px;
-    border: 3px solid #FF0000;
-    background: #ffffcc;
+    border: 2px solid #999999;
+    background: #e8e8e8;
     border-radius: 10px;
 }
 
@@ -272,8 +288,8 @@ border-radius: 10px;
 #centrform {
     /*  только для col-md-5 */
     margin-top: 50px;
-    border: 3px solid #FF0000;
-    background: #ffffcc;
+    border: 2px solid #999999;
+    background: #e8e8e8;
     border-radius: 10px;
     padding: 15px;
     text-align: center;
@@ -288,16 +304,18 @@ border-radius: 10px;
 }
 #carticon{
     font-size: 14pt;
+    color: #ffffff ;
 }
 #carthead{
     border: 3px solid #ffffcc;
     border-radius: 10px;
     padding: 5px;
     text-align: center;
+    color: #ffffff ;
 }
 #kabinetform {
-    border: 3px solid #FF0000;
-    background: #ffffcc;
+    border: 2px solid #999999;
+    background: #e8e8e8;
     border-radius: 10px;
     padding: 10px;
     text-align: center;
