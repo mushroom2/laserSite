@@ -1,0 +1,9 @@
+{% extends 'magaz/base.html' %}
+{% block content %}
+<h1>Test</h1>
+        <form class="form-inline" action="{% url 'order' %}" method="post" >
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="зберегти" class="btn btn-primary btn-sm" />
+        </form>
+{% endblock %}

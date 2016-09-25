@@ -135,19 +135,27 @@ def avatarform(request):
 
 
 def just_pay_for_all(request):
-    cart = Cart(request)
+    order = 'order'
     user = request.user
+    cart = Cart(request)
     if request.method == 'POST':
         form = PayGoodForm(request.POST)
         if form.is_valid():
+            formsave = form.save(commit=False)
+            formsave.user =user
             for item in cart:
                 GoodPay.objects.create(
                     user=user,
-                    prises=item['prise']
+                    prises=item['prise'],
+                    price=item['good_price'],
+                    quantity=item['quantity'],
+                    ordersum=int(item['good_price'])*item['quantity']
                 )
-            return render(request, {cart: 'cart', form: 'form'})
-        else:
-            form = PayGoodForm()
+
+    else:
+        form = PayGoodForm()
+
+    return render(request, 'magaz/order.html', {order: 'order', cart: 'cart', form: 'form'})  #
 
 """
     if request.method == 'POST':

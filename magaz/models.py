@@ -100,11 +100,12 @@ class AvatarUser(models.Model):
 
 
 class GoodPay(models.Model):
-    user = models.OneToOneField(User, primary_key=True)
-    prises = models.ForeignKey(Prises, related_name='history_of_pays')
-    date = models.DateTimeField(auto_now=True)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
-    quantity = models.PositiveIntegerField(default=1)
+    user = models.ForeignKey(User, unique=False, verbose_name='користувач')
+    prises = models.ForeignKey(Prises, null=True, blank=True, verbose_name='товар')
+    date = models.DateTimeField(auto_now=True, primary_key=True, verbose_name='дата замовлення')
+    price = models.DecimalField(max_digits=10, decimal_places=2, null=True, verbose_name='ціна однієї одиниці')
+    quantity = models.PositiveIntegerField(null=True, blank=True, verbose_name='кількість')
+    ordersum = models.PositiveIntegerField(null=True, blank=True, verbose_name='cума')
 
     def __str__(self):
         return self.user.username

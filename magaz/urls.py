@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^numbform/$', views.numbform, name='numbform'),
     url(r'^aboutform/$', views.aboutform, name='aboutform'),
     url(r'^avatarform/$', views.avatarform, name='avatarform'),
+    url(r'^order/$', views.just_pay_for_all, name='order'),
     url(r'^$', views.shop, name='shop'),
     url(r'product/(?P<good_id>[0-9]+)/$', views.show_goods, name='prises'),
     url(r'(?P<slag_url>[\-\d\w]+)/$', views.cat_detail, name='category'),

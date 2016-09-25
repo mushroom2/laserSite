@@ -43,3 +43,8 @@ admin.site.register(AboutUser,  AboutUserAdmin)
 class AvatarUserAdmin(admin.ModelAdmin):
     list_display = ('user', 'avatar')
 admin.site.register(AvatarUser, AvatarUserAdmin)
+
+
+class OrderUserAdmin(admin.ModelAdmin):
+    list_display = ('user', 'prises', 'quantity', 'price', 'ordersum', 'date')
+admin.site.register(GoodPay, OrderUserAdmin)
