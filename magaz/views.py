@@ -151,6 +151,8 @@ def just_pay_for_all(request):
                     quantity=item['quantity'],
                     ordersum=int(item['good_price'])*item['quantity']
                 )
+            cart.clear()
+            return HttpResponseRedirect('/')
 
     else:
         form = PayGoodForm()

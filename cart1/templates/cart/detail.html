@@ -11,9 +11,10 @@
 
                 <th></th>
                 <th id="tab_head">Товар</th>
-                <th id="tab_head">Видалити</th>
                 <th id="tab_head">Ціна</th>
+                <th id="tab_head">Кількість</th>
                 <th id="tab_head">Загальна ціна</th>
+                <th id="tab_head"></th>
             </tr>
         </thead>
         <tbody>
@@ -24,22 +25,25 @@
                     <img id="tab_pic" src="{{ prise.pic.url }}" height="150px">
                 </td>
                 <td>{{ prise.good_name }}</td>
-
-                <td><a class="btn btn-danger" id="tab_btn" href="{% url "cart1:cart_remove" prise.id %}" role="button">Видалити</a></td>
-                <td class="num">{{ item.good_price }} Uah</td>
-                <td class="num">{{ item.total_good_price }} Uah</td>
+                <td class="num">{{ item.good_price }} Грн</td>
+                <td class="num">{{ item.quantity }} Шт</td>
+                <td class="num">{{ item.total_good_price }} Грн</td>
+                <td><a class="btn btn-danger btn-sm" id="tab_btn" href="{% url "cart1:cart_remove" prise.id %}" role="button">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </a></td>
             </tr>
             {% endwith %}
 
         {% endfor %}
         <tr class="total">
-            <td>Загална сумма</td>
-            <td colspan="4"></td>
-            <td class="num">{{ cart.get_total_price }} Uah</td>
+            <td colspan="5"></td>
+            <td class="num">Загална сумма: <p>{{ cart.get_total_price }} Грн</p></td>
         </tr>
         </tbody>
     </table>
-    <p class="text-right">
+    <p class="text-right"></p>
 
-    </p>
+    <div class="pull-right">
+        <a class="btn btn-primary" href="{% url 'order' %}">оформити замовлення</a>
+    </div>
 {% endblock %}

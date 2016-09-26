@@ -337,3 +337,16 @@ margin: 4px;
 #g_f{
     margin: 15px;
 }
+
+.order{
+    table-layout: fixed;
+    margin-left: 15%;
+    width: 70%;
+    text-align: center;
+    border-collapse: separate;
+    border-spacing: 15px 15px;
+    border: 1px solid black;
+}
+#orderbtn{
+    margin-left: 78.5%;
+}

@@ -1,9 +1,33 @@
 {% extends 'magaz/base.html' %}
 {% block content %}
-<h1>Test</h1>
+<h1>Оформлення замовлення</h1>
+
+     <table class="order"  >
+
+        <tbody>
+        {% for item in cart %}
+            {% with prise=item.prise %}
+            <tr>
+                <td>{{ prise.good_name }}</td>
+                <td>{{ item.quantity }} Шт</td>
+                <td>{{ item.good_price }} Грн</td>
+            </tr>
+            {% endwith %}
+
+        {% endfor %}
+        <tr>
+            <td>Загална сумма</td>
+            <td colspan="1"></td>
+            <td >{{ cart.get_total_price }} Грн</td>
+        </tr>
+        </tbody>
+    </table>
+    <p class="text-right"></p>
+    <div id="orderbtn">
         <form class="form-inline" action="{% url 'order' %}" method="post" >
             {% csrf_token %}
             {{ form }}
-            <input type="submit" value="зберегти" class="btn btn-primary btn-sm" />
+            <input type="submit" value="оплатити" class="btn btn-primary btn-sm" />
         </form>
+    </div>
 {% endblock %}
