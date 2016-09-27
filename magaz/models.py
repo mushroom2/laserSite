@@ -105,7 +105,7 @@ class GoodPay(models.Model):
     date = models.DateTimeField(auto_now=True, primary_key=True, verbose_name='дата замовлення')
     price = models.DecimalField(max_digits=10, decimal_places=2, null=True, verbose_name='ціна однієї одиниці')
     quantity = models.PositiveIntegerField(null=True, blank=True, verbose_name='кількість')
-    ordersum = models.PositiveIntegerField(null=True, verbose_name='cума')
+    ordersum = models.PositiveIntegerField(null=True, verbose_name='СУМА')
 
     def __str__(self):
         return self.user.username
