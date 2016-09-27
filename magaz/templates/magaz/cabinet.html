@@ -217,7 +217,19 @@
      <div id="kabinetform" class="col-md-4">
      <h4>Історія покупок</h4>
      <hr>
-     <p> Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.</p>
+         {% for value in userpay %}
+             <p>
+                 {{ value.date }}
+                 {% for val in pr %}
+                     {% if val.id == value.prises_id %}
+                         {{ val.good_name }}
+                     {% endif %}
+                 {% endfor %}|
+                 {{ value.price }} Грн|
+                 {{ value.quantity }} Шт|
+                 {{ value.ordersum }} Грн
+             </p>
+         {% endfor %}
      </div>
     <div class="col-md-3 pull-right" id="kabinetform">
 

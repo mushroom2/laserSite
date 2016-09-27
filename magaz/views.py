@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from magaz.forms import *
-from magaz.models import Prises, Category
+from magaz.models import Prises, Category, GoodPay
 from cart1.forms import CartAddProductsForm
 from cart1.cart import Cart
 from django.contrib.auth.models import User
@@ -36,6 +36,8 @@ def show_goods(request, good_id):
 
 def cabinet(request):
     cabinet = 'cabinet'
+    userpay = GoodPay.objects.filter(user=request.user).order_by('-date').values()
+    pr = Prises.objects.all().values('id', 'good_name')
     sif = SiteMiniForm(request.POST)
     skf = SkypeMiniForm(request.POST)
     prf = ProfessionMiniForm(request.POST)
@@ -43,7 +45,7 @@ def cabinet(request):
     abf = AboutMiniForm(request.POST)
     avf = AvatarMiniForm(request.POST)
     return render(request, 'magaz/cabinet.html', {'cabinet': cabinet, 'sif': sif, 'skf': skf, 'prf': prf, 'nmf': nmf,
-                                                  'abf': abf, 'avf': avf})
+                                                  'abf': abf, 'avf': avf, 'userpay': userpay, 'pr': pr})
 
 
 def siteform(request):
