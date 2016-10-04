@@ -63,9 +63,9 @@ h1{
     text-align: center;
 }
 
-.item{
-    height: 300px;
-    margin-top: 50px;
+.item{   /* карусель */
+    height: 350px;
+    margin-top: 15px;
 }
 .but1{
     top: 50%
