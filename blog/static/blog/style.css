@@ -193,9 +193,8 @@ hr{
     background: #351309;
 }
 #one_pic{
-    height: 500px;
-    margin-left: 28%;
-    margin-right: 28%;
+    height: 375px;
+    text-align: center;
 }
 #new_product{
     font-size: 29px;
