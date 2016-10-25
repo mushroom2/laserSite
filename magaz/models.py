@@ -14,6 +14,7 @@ class Category (models.Model):
 
 class Prises (models.Model):
     import requests
+    valute = 'uah'
     good_name = models.CharField(max_length=200, db_index=True)
     good_price = models.IntegerField('price')
     good_about = models.TextField()

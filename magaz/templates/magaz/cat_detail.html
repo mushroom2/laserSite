@@ -5,7 +5,7 @@
 
 {% block content %}
 <h1>{{ category.cat_name }}</h1>
-<p>{{ prises.get_dolar }}</p>
+<p>{{ valute }}</p>
 <hr>
 {% for prises in category.prises_set.all  %}
         <div class="row col-lg-6">
@@ -13,7 +13,12 @@
                 <h5><a href="{% url 'prises' prises.id %}">{{ prises.good_name }}</a></h5>
                 <img src="{{ prises.pic.url }}" id="good_pic">
                 <p>{{ prises.shortMagazText }}</p>
-                <p>{{ prises.good_price }} Грн.</p>
+                 {% if valute == 'uah' %}
+                        <p>{{ prises.get_dolar }} $</p>
+                 {% else %}
+                     <p>{{ prises.good_price }} Грн.</p>
+                 {% endif %}
+
                 <p><a class="btn btn-default" id="cat_btn1" href="{% url 'prises' prises.id %}" role="button"> Купити </a></p>
              </div>
         </div>

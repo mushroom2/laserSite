@@ -21,9 +21,10 @@ def shop(request):
 def cat_detail(request, slag_url):
     category = get_object_or_404(Category, slag_url=slag_url)
     goods = Prises.objects.order_by('-good_time')
+    valute = Prises.valute
     cart= Cart(request)
 
-    return render(request, 'magaz/cat_detail.html', {'category': category, 'goods': goods, 'cart': cart})
+    return render(request, 'magaz/cat_detail.html', {'category': category, 'goods': goods, 'cart': cart, 'valute':valute})
 
 
 
