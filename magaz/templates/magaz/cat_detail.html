@@ -5,6 +5,7 @@
 
 {% block content %}
 <h1>{{ category.cat_name }}</h1>
+<p>{{ prises.get_dolar }}</p>
 <hr>
 {% for prises in category.prises_set.all  %}
         <div class="row col-lg-6">
