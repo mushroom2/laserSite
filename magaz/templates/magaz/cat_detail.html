@@ -6,6 +6,17 @@
 {% block content %}
 <h1>{{ category.cat_name }}</h1>
 <p>{{ valute }}</p>
+        <form class="form-inline" action="{% url 'dol' %}?next={{ request.path }}" method="post" >
+            {% csrf_token %}
+            {{ vf }}
+            <input type="submit" value="usd" class="btn btn-primary btn-sm" />
+        </form>
+
+        <form class="form-inline" action="{% url 'uah' %}?next={{ request.path }}" method="post" >
+            {% csrf_token %}
+            {{ hf }}
+            <input type="submit" value="uah" class="btn btn-primary btn-sm" />
+        </form>
 <hr>
 {% for prises in category.prises_set.all  %}
         <div class="row col-lg-6">

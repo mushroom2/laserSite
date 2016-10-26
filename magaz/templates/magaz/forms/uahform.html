@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>hf</title>
+</head>
+<body>
+    <form class="form-inline" action="{% url 'uah' %}" method="post" >
+            {% csrf_token %}
+            {{ hrivra_form }}
+            <input type="submit" value="uah" class="btn btn-primary btn-sm" />
+    </form>
+</body>
+</html>

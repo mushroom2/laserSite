@@ -49,3 +49,13 @@ class PayGoodForm(forms.ModelForm):
     class Meta:
         model = GoodPay
         fields = []
+
+class ValuteForm(forms.ModelForm):
+    class Meta:
+        model = Prises
+        fields = ()
+
+class HrivnaForm(forms.ModelForm):
+    class Meta:
+        model = Prises
+        fields = ()

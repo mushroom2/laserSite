@@ -16,10 +16,10 @@ class Prises (models.Model):
     import requests
     valute = 'uah'
     good_name = models.CharField(max_length=200, db_index=True)
-    good_price = models.IntegerField('price')
+    good_price = models.IntegerField('price', blank=True, null=True )
     good_about = models.TextField()
     pic = models.ImageField(upload_to='shop/')
-    good_time = models.DateTimeField('date_published')
+    good_time = models.DateTimeField('date_published', blank=True, null=True)
     in_magaz = models.BooleanField(default=True, help_text='наличие товара на складе', db_index=True)
     category = models.ForeignKey(Category, null=True, blank=True, on_delete=models.SET_NULL)
 

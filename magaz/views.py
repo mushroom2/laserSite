@@ -23,8 +23,12 @@ def cat_detail(request, slag_url):
     goods = Prises.objects.order_by('-good_time')
     valute = Prises.valute
     cart= Cart(request)
+    hf = HrivnaForm(request.POST)
+    vf = ValuteForm(request.POST)
 
-    return render(request, 'magaz/cat_detail.html', {'category': category, 'goods': goods, 'cart': cart, 'valute':valute})
+
+    return render(request, 'magaz/cat_detail.html', {'category': category, 'goods': goods, 'cart': cart,
+                                                     'valute': valute, 'vf': vf, 'hf': hf})
 
 
 
@@ -161,6 +165,28 @@ def just_pay_for_all(request):
         form = PayGoodForm()
 
     return render(request, 'magaz/order.html', {order: 'order', cart: 'cart', form: 'form'})  #
+
+def uah_form(request):
+    if request.method == 'POST':
+        hrivra_form = HrivnaForm(request.POST)
+        if hrivra_form.is_valid():
+            Prises.valute = 'uah'
+            hrivra_form.save()
+    else:
+        hrivra_form = HrivnaForm()
+    return render(request, 'magaz/forms/uahform.html', {'hrivra_form': hrivra_form})
+
+
+
+def valute_form(request):
+    if request.method == 'POST':
+        valute_form = ValuteForm(request.POST)
+        if valute_form.is_valid():
+            Prises.valute = 'usd'
+            valute_form.save()
+    else:
+        valute_form = ValuteForm()
+    return render(request, 'magaz/forms/dolarform.html', {'valute_form': valute_form})
 
 """
     if request.method == 'POST':
