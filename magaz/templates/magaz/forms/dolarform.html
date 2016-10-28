@@ -5,7 +5,7 @@
     <title>dolarform</title>
 </head>
 <body>
-        <form class="form-inline" action="{% url 'dol' %}" method="post" >
+        <form class="form-inline"  method="post" >
             {% csrf_token %}
             {{ vf }}
             <input type="submit" value="usd" class="btn btn-primary btn-sm" />

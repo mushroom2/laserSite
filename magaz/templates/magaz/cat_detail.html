@@ -6,15 +6,17 @@
 {% block content %}
 <h1>{{ category.cat_name }}</h1>
 <p>{{ valute }}</p>
-        <form class="form-inline" action="{% url 'dol' %}?next={{ request.path }}" method="post" >
+        <form class="form-inline" action="{% url 'dol' %}" method="post" >
             {% csrf_token %}
             {{ vf }}
+            <input type="hidden" name="next" value="{{ request.path }}">
             <input type="submit" value="usd" class="btn btn-primary btn-sm" />
         </form>
 
-        <form class="form-inline" action="{% url 'uah' %}?next={{ request.path }}" method="post" >
+        <form class="form-inline" action="{% url 'uah' %}" method="post" >
             {% csrf_token %}
-            {{ hf }}
+            {{ hrivra_form }}
+            <input type="hidden" name="next" value="{{ request.path }}">
             <input type="submit" value="uah" class="btn btn-primary btn-sm" />
         </form>
 <hr>

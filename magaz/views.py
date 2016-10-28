@@ -1,5 +1,5 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from magaz.forms import *
 from magaz.models import Prises, Category, GoodPay
 from cart1.forms import CartAddProductsForm
@@ -22,13 +22,8 @@ def cat_detail(request, slag_url):
     category = get_object_or_404(Category, slag_url=slag_url)
     goods = Prises.objects.order_by('-good_time')
     valute = Prises.valute
-    cart= Cart(request)
-    hf = HrivnaForm(request.POST)
-    vf = ValuteForm(request.POST)
-
-
-    return render(request, 'magaz/cat_detail.html', {'category': category, 'goods': goods, 'cart': cart,
-                                                     'valute': valute, 'vf': vf, 'hf': hf})
+    return render(request, 'magaz/cat_detail.html', {'category': category, 'goods': goods,
+                                                     'valute': valute, })
 
 
 
@@ -172,6 +167,8 @@ def uah_form(request):
         if hrivra_form.is_valid():
             Prises.valute = 'uah'
             hrivra_form.save()
+
+            return HttpResponseRedirect(request.POST.get('next'))
     else:
         hrivra_form = HrivnaForm()
     return render(request, 'magaz/forms/uahform.html', {'hrivra_form': hrivra_form})
@@ -184,6 +181,8 @@ def valute_form(request):
         if valute_form.is_valid():
             Prises.valute = 'usd'
             valute_form.save()
+            return HttpResponseRedirect(request.POST.get('next'))
+
     else:
         valute_form = ValuteForm()
     return render(request, 'magaz/forms/dolarform.html', {'valute_form': valute_form})

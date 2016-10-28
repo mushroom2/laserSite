@@ -58,6 +58,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'cart1.processors.context_processors.cart',
+                'cart1.processors.context_processors.valute',
+                'django.core.context_processors.request',
                 'social.apps.django_app.context_processors.backends',
                 'social.apps.django_app.context_processors.login_redirect',
             ],
