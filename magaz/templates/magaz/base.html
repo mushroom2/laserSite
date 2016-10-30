@@ -99,7 +99,11 @@ $('body,html').animate({scrollTop:0},800);
                     <a href="{% url "cart1:cart_detail" %}">
                     <span class="glyphicon glyphicon-shopping-cart" id="carticon">{{ total_items }}</span>
                     </a>
-                          на {{ cart.get_total_price }} Грн
+                 {% if val == 'usd' %}
+                     на {{ cart.get_dolar_total_price }} $
+                 {% else %}
+                     на {{ cart.get_total_price }} Грн
+                 {% endif %}
                     </div>
                 {% else %}
                     <div id="carthead" class="nav pull-right">
@@ -118,7 +122,11 @@ $('body,html').animate({scrollTop:0},800);
                         <span class="glyphicon glyphicon-shopping-cart" id="carticon"></span>
                         {{ total_items }}
                     </a>
-                        на {{ cart.get_total_price }} Грн
+                 {% if val == 'usd' %}
+                     на {{ cart.get_dolar_total_price }} $
+                 {% else %}
+                     на {{ cart.get_total_price }} Грн
+                 {% endif %}
                     </div>
                 {% else %}
                     <div id="carthead" class="nav pull-right">
@@ -127,8 +135,31 @@ $('body,html').animate({scrollTop:0},800);
                 {% endif %}
                 {% endwith %}
             {% endif %}
-             </div>
 
+        {% if 'shop' in request.path or 'cart' in request.path %}
+        <form class="form-inline pull-right" action="{% url 'dol' %}" method="post" >
+            {% csrf_token %}
+            {{ vf }}
+            <input type="hidden" name="next" value="{{ request.path }}">
+            {% if val == 'usd'%}
+                <input type="submit" value="usd" class="btn btn-default btn-xs" id="valutebuttonactive" />
+            {% else %}
+                <input type="submit" value="usd" class="btn btn-default btn-xs" id="valutebutton" />
+            {% endif %}
+        </form>
+
+        <form class="form-inline pull-right" action="{% url 'uah' %}" method="post" >
+            {% csrf_token %}
+            {{ hrivra_form }}
+            <input type="hidden" name="next" value="{{ request.path }}">
+                   {% if val == 'uah'%}
+                <input type="submit" value="uah" class="btn btn-default btn-xs" id="valutebuttonactive" />
+            {% else %}
+                <input type="submit" value="uah" class="btn btn-default btn-xs" id="valutebutton" />
+            {% endif %}
+        </form>
+        {% endif %}
+          </div>
           <ul class="nav navbar-nav">
             <li><a href="{% url 'home' %}">Головна</a></li>
             <li><a href="{% url 'about' %}">Про нас</a></li>

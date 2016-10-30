@@ -11,7 +11,11 @@
      <h4 id="new_product">{{ prices.good_name }}</h4>
      <img src="{{ prices.pic.url }}" id="one_pic">
       <h4>{{ prices.good_about }}</h4>
-      <h4 id="price_hot">{{ prices.good_price }} Грн</h4>
+    {% if val == 'usd' %}
+        <h4 id="price_hot">{{ prices.get_dolar }} $</h4>
+    {% else %}
+        <h4 id="price_hot">{{ prices.good_price }} Грн.</h4>
+    {% endif %}
     {% if prices.in_magaz %}
         <p id="in_magaz"> є в наявності</p>
     {% else  %}
@@ -19,8 +23,10 @@
     {% endif %}
     <hr>
         <form action="{% url "cart1:cart_add" prices.id %}" method="post" class="form-inline">
+             <div class="form-group">
             {{ cart_product_form }}
             {% csrf_token %}
+             </div>
             <input type="submit" value="Додати в кошик" class="btn btn-primary btn-sm">
         </form>
     <hr>

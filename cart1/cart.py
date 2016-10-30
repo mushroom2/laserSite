@@ -24,6 +24,7 @@ class Cart(object):
         for item in self.cart.values():
             item['good_price'] = (item['good_price'])
             item['total_good_price'] = int(item['good_price']) * item['quantity']
+            item['dolar_total_price'] = round(((int(item['good_price']) * item['quantity'])/Prises.dolar), 2)
             yield item
 
     def add(self, prise, quantity=1,  update_quantity=False):
@@ -54,3 +55,6 @@ class Cart(object):
 
     def get_total_price(self):
         return sum(int(item['good_price']) * item['quantity'] for item in self.cart.values())
+
+    def get_dolar_total_price(self):
+        return round((sum(int(item['good_price']) * item['quantity'] for item in self.cart.values())/Prises.dolar), 2)

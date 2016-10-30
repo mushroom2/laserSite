@@ -15,6 +15,9 @@ class Category (models.Model):
 class Prises (models.Model):
     import requests
     valute = 'uah'
+    req = 'https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=3'
+    dolar = round((float(requests.get(req).json()[2]['sale'])), 2)
+
     good_name = models.CharField(max_length=200, db_index=True)
     good_price = models.IntegerField('price', blank=True, null=True )
     good_about = models.TextField()
@@ -39,8 +42,8 @@ class Prises (models.Model):
         else:
             return self.good_about
 
-    def get_dolar(self, req='https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=3'):
-        return round((self.good_price / (float(self.requests.get(req).json()[2]['sale']))), 2)
+    def get_dolar(self):
+        return round((self.good_price / self.dolar), 2)
 
 
 class MyUser(models.Model):

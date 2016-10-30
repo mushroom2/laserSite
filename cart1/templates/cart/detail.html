@@ -25,9 +25,20 @@
                     <img id="tab_pic" src="{{ prise.pic.url }}" height="150px">
                 </td>
                 <td>{{ prise.good_name }}</td>
-                <td class="num">{{ item.good_price }} Грн</td>
+                {% if val == 'usd' %}
+                        <td class="num">{{ prise.get_dolar }} $</td>
+                 {% else %}
+                     <td class="num">{{ item.good_price }} Грн</td>
+                 {% endif %}
+
                 <td class="num">{{ item.quantity }} Шт</td>
-                <td class="num">{{ item.total_good_price }} Грн</td>
+                {% if val == 'usd' %}
+                       <td class="num">{{ item.dolar_total_price }} $</td>
+                 {% else %}
+                     <td class="num">{{ item.total_good_price }} Грн</td>
+                 {% endif %}
+
+
                 <td><a class="btn btn-danger btn-sm" id="tab_btn" href="{% url "cart1:cart_remove" prise.id %}" role="button">
                     <span class="glyphicon glyphicon-remove"></span>
                 </a></td>
@@ -37,7 +48,12 @@
         {% endfor %}
         <tr class="total">
             <td colspan="5"></td>
-            <td class="num">Загална сумма: <p>{{ cart.get_total_price }} Грн</p></td>
+            {% if val == 'usd' %}
+                     <td class="num">Загална сумма: <p>{{ cart.get_dolar_total_price }} $</p></td>
+                 {% else %}
+                     <td class="num">Загална сумма: <p>{{ cart.get_total_price }} Грн</p></td>
+                 {% endif %}
+
         </tr>
         </tbody>
     </table>

@@ -349,3 +349,19 @@ margin: 4px;
 #orderbtn{
     margin-left: 78.5%;
 }
+#valutebutton{
+    border-radius: 10px;
+    margin: 7px;
+}
+
+#valutebuttonactive{
+    border-radius: 10px;
+    margin: 7px;
+    background: #CC3333;
+}
+
+#id_quantity{
+
+    height: 30px;
+    width: 58px;
+}
