@@ -15,8 +15,8 @@ class Category (models.Model):
 class Prises (models.Model):
     import requests
     valute = 'uah'
-    req = 'https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=3'
-    dolar = round((float(requests.get(req).json()[2]['sale'])), 2)
+#    req = 'https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=3'
+    dolar = 25.31  # round((float(requests.get(req).json()[2]['sale'])), 2)
 
     good_name = models.CharField(max_length=200, db_index=True)
     good_price = models.IntegerField('price', blank=True, null=True )
