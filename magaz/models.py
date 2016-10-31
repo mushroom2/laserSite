@@ -14,7 +14,6 @@ class Category (models.Model):
 
 class Prises (models.Model):
     import requests
-    valute = 'uah'
 #    req = 'https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=3'
     dolar = 25.31  # round((float(requests.get(req).json()[2]['sale'])), 2)
 

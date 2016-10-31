@@ -22,9 +22,7 @@ def shop(request):
 def cat_detail(request, slag_url):
     category = get_object_or_404(Category, slag_url=slag_url)
     goods = Prises.objects.order_by('-good_time')
-    valute = Prises.valute
-    return render(request, 'magaz/cat_detail.html', {'category': category, 'goods': goods,
-                                                     'valute': valute, })
+    return render(request, 'magaz/cat_detail.html', {'category': category, 'goods': goods, })
 
 
 
@@ -161,38 +159,6 @@ def just_pay_for_all(request):
         form = PayGoodForm()
 
     return render(request, 'magaz/order.html', {order: 'order', cart: 'cart', form: 'form'})  #
-
-def uah_form(request):
-    val = UserData(request)
-    if request.method == 'POST':
-        hrivra_form = HrivnaForm(request.POST)
-        if hrivra_form.is_valid():
-
-            Prises.valute = val.userdata
-            val.setuah()
-            hrivra_form.save()
-
-            return HttpResponseRedirect(request.POST.get('next'))
-    else:
-        hrivra_form = HrivnaForm()
-    return render(request, 'magaz/forms/uahform.html', {'hrivra_form': hrivra_form})
-
-
-
-def valute_form(request):
-    val = UserData(request)
-    if request.method == 'POST':
-        valute_form = ValuteForm(request.POST)
-        if valute_form.is_valid():
-            val.userdata['valute'] = 'usd'
-            Prises.valute = val.userdata
-            val.setdolar()
-            valute_form.save()
-            return HttpResponseRedirect(request.POST.get('next'))
-
-    else:
-        valute_form = ValuteForm()
-    return render(request, 'magaz/forms/dolarform.html', {'valute_form': valute_form, 'val': val})
 
 
 def set_uah(request):

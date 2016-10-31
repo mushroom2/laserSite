@@ -4,8 +4,6 @@ from . import views
 
 urlpatterns = [
     url(r'^cabinet/$', views.cabinet, name='cabinet'),
-    url(r'^dol/$', views.valute_form, name='dol'),
-    url(r'^uah/$', views.uah_form, name='uah'),
     url(r'^setuah/$', views.set_uah, name='set_uah'),
     url(r'^setusd/$', views.set_usd, name='set_usd'),
     url(r'^siteform/$', views.siteform, name='siteform'),
@@ -18,5 +16,4 @@ urlpatterns = [
     url(r'^$', views.shop, name='shop'),
     url(r'product/(?P<good_id>[0-9]+)/$', views.show_goods, name='prises'),
     url(r'(?P<slag_url>[\-\d\w]+)/$', views.cat_detail, name='category'),
-
 ]
