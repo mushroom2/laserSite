@@ -194,6 +194,17 @@ def valute_form(request):
         valute_form = ValuteForm()
     return render(request, 'magaz/forms/dolarform.html', {'valute_form': valute_form, 'val': val})
 
+
+def set_uah(request):
+    val = UserData(request)
+    val.setuah()
+    return HttpResponseRedirect(request.GET.get('next'))
+
+
+def set_usd(request):
+    val = UserData(request)
+    val.setdolar()
+    return HttpResponseRedirect(request.GET.get('next'))
 """
     if request.method == 'POST':
         cabinet_form = CabinetForm(request.POST)

@@ -99,7 +99,7 @@ $('body,html').animate({scrollTop:0},800);
                     <a href="{% url "cart1:cart_detail" %}">
                     <span class="glyphicon glyphicon-shopping-cart" id="carticon">{{ total_items }}</span>
                     </a>
-                 {% if val == 'usd' %}
+                 {% if val.userdata.valute == 'usd' %}
                      на {{ cart.get_dolar_total_price }} $
                  {% else %}
                      на {{ cart.get_total_price }} Грн
@@ -122,7 +122,7 @@ $('body,html').animate({scrollTop:0},800);
                         <span class="glyphicon glyphicon-shopping-cart" id="carticon"></span>
                         {{ total_items }}
                     </a>
-                 {% if val == 'usd' %}
+                 {% if val.userdata.valute == 'usd' %}
                      на {{ cart.get_dolar_total_price }} $
                  {% else %}
                      на {{ cart.get_total_price }} Грн
@@ -137,22 +137,22 @@ $('body,html').animate({scrollTop:0},800);
             {% endif %}
 
         {% if 'shop' in request.path or 'cart' in request.path %}
-        <form class="form-inline pull-right" action="{% url 'dol' %}" method="post" >
+        <form class="form-inline pull-right" action="{% url 'set_usd' %}" method="get" >
             {% csrf_token %}
-            {{ vf }}
+
             <input type="hidden" name="next" value="{{ request.path }}">
-            {% if val.valute == 'usd'%}
+            {% if val.userdata.valute == 'usd'%}
                 <input type="submit" value="usd" class="btn btn-default btn-xs" id="valutebuttonactive" />
             {% else %}
                 <input type="submit" value="usd" class="btn btn-default btn-xs" id="valutebutton" />
             {% endif %}
         </form>
 
-        <form class="form-inline pull-right" action="{% url 'uah' %}" method="post" >
+        <form class="form-inline pull-right" action="{% url 'set_uah' %}" method="get" >
             {% csrf_token %}
             {{ hrivra_form }}
             <input type="hidden" name="next" value="{{ request.path }}">
-                   {% if val.valute == 'uah'%}
+                   {% if val.userdata.valute == 'uah'%}
                 <input type="submit" value="uah" class="btn btn-default btn-xs" id="valutebuttonactive" />
             {% else %}
                 <input type="submit" value="uah" class="btn btn-default btn-xs" id="valutebutton" />

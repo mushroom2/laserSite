@@ -25,14 +25,14 @@
                     <img id="tab_pic" src="{{ prise.pic.url }}" height="150px">
                 </td>
                 <td>{{ prise.good_name }}</td>
-                {% if val == 'usd' %}
+                {% if val.userdata.valute == 'usd' %}
                         <td class="num">{{ prise.get_dolar }} $</td>
                  {% else %}
                      <td class="num">{{ item.good_price }} Грн</td>
                  {% endif %}
 
                 <td class="num">{{ item.quantity }} Шт</td>
-                {% if val == 'usd' %}
+                {% if val.userdata.valute == 'usd' %}
                        <td class="num">{{ item.dolar_total_price }} $</td>
                  {% else %}
                      <td class="num">{{ item.total_good_price }} Грн</td>
@@ -48,7 +48,7 @@
         {% endfor %}
         <tr class="total">
             <td colspan="5"></td>
-            {% if val == 'usd' %}
+            {% if val.userdata.valute == 'usd' %}
                      <td class="num">Загална сумма: <p>{{ cart.get_dolar_total_price }} $</p></td>
                  {% else %}
                      <td class="num">Загална сумма: <p>{{ cart.get_total_price }} Грн</p></td>

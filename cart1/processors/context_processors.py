@@ -11,5 +11,6 @@ def cart(request):
 def valute(request):
     hrivra_form = HrivnaForm(request.POST)
     vf = ValuteForm(request.POST)
-    val = Prises.valute
+    val = UserData(request)
+
     return {'vf': vf, 'hrivra_form': hrivra_form, 'val': val}

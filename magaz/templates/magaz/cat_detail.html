@@ -5,7 +5,6 @@
 
 {% block content %}
 <h1>{{ category.cat_name }}</h1>
-{{ val }}
 <hr>
 {% for prises in category.prises_set.all  %}
         <div class="row col-lg-6">
@@ -13,7 +12,7 @@
                 <h5><a href="{% url 'prises' prises.id %}">{{ prises.good_name }}</a></h5>
                 <img src="{{ prises.pic.url }}" id="good_pic">
                 <p>{{ prises.shortMagazText }}</p>
-                 {% if val == 'usd' %}
+                 {% if val.userdata.valute == 'usd' %}
                         <p>{{ prises.get_dolar }} $</p>
                  {% else %}
                      <p>{{ prises.good_price }} Грн.</p>

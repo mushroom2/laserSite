@@ -11,7 +11,7 @@
      <h4 id="new_product">{{ prices.good_name }}</h4>
      <img src="{{ prices.pic.url }}" id="one_pic">
       <h4>{{ prices.good_about }}</h4>
-    {% if val == 'usd' %}
+    {% if val.userdata.valute == 'usd' %}
         <h4 id="price_hot">{{ prices.get_dolar }} $</h4>
     {% else %}
         <h4 id="price_hot">{{ prices.good_price }} Грн.</h4>
