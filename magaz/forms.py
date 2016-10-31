@@ -1,5 +1,6 @@
 from django import forms
 from magaz.models import *
+from magaz.userdata import UserData
 
 #общая "большая" форма
 """

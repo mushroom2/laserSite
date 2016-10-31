@@ -1,5 +1,5 @@
 from cart1.cart import Cart
-from magaz.models import Prises
+from magaz.userdata import UserData
 from magaz.forms import *
 from django.shortcuts import HttpResponseRedirect
 
@@ -12,4 +12,4 @@ def valute(request):
     hrivra_form = HrivnaForm(request.POST)
     vf = ValuteForm(request.POST)
     val = Prises.valute
-    return {'vf': vf, 'hrivra_form': hrivra_form, 'val': val }
+    return {'vf': vf, 'hrivra_form': hrivra_form, 'val': val}
