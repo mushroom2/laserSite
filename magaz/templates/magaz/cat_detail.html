@@ -9,7 +9,7 @@
 {% for prises in category.prises_set.all  %}
         <div class="row col-lg-6">
              <div class="shop-pr">
-                <h5><a href="{% url 'prises' prises.id %}">{{ prises.good_name }}</a></h5>
+                <h5 id="good_link"><a href="{% url 'prises' prises.id %}">{{ prises.good_name }}</a></h5>
                 <img src="{{ prises.pic.url }}" id="good_pic">
                 <p>{{ prises.shortMagazText }}</p>
                  {% if val.userdata.valute == 'usd' %}
@@ -18,7 +18,7 @@
                      <p>{{ prises.good_price }} Грн.</p>
                  {% endif %}
 
-                <p><a class="btn btn-default" id="cat_btn1" href="{% url 'prises' prises.id %}" role="button"> Купити </a></p>
+                <a class="btn btn-default" id="cat_btn1" href="{% url 'prises' prises.id %}" role="button"> Купити </a>
              </div>
         </div>
 {% endfor %}

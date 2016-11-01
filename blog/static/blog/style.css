@@ -114,7 +114,6 @@ hr{
 }
 
 #good_pic {
-    margin-top: 9px;
     height: 200px;
     left: 50%;
     border-radius: 10px;
@@ -177,9 +176,9 @@ hr{
 .shop-pr{
     border: 2px solid #999999;
     background: #e8e8e8;
-    padding: 15px;
+    padding: 5px;
     box-sizing: content-box;
-    height: 360px;
+    height: 345px;
     width: 400px;
     text-align: center;
     font-size: 10pt;
@@ -189,9 +188,15 @@ hr{
     border-radius: 10px;
 }
 
+#good_link{
+margin-top: 3px;
+}
+
 #cat_btn1{
     color: #fcf8e3;
     background: #351309;
+    width: 390px;
+
 }
 #one_pic{
     height: 375px;
