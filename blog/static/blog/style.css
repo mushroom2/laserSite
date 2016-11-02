@@ -4,6 +4,15 @@
     background: url("https://pp.vk.me/c637331/v637331751/cf68/GCPKsVkVxB0.jpg") no-repeat fixed center center / cover ;
 }
 */
+html{
+    position: relative;
+    min-height: 100%;
+}
+
+body{
+    margin-bottom: 40px;
+}
+
 .navbar-default {
     background-color: #351309;
     border-color: #351309;
@@ -24,6 +33,7 @@
     font-size: 10px;
     margin-left: 42%;
     margin-top: 10px;
+    bottom: 10px;
 }
 a{
     color: #FF0000;
@@ -196,6 +206,9 @@ margin-top: 3px;
     color: #fcf8e3;
     background: #351309;
     width: 390px;
+    position: absolute;
+    bottom: 40px;
+    right: 26px;
 
 }
 #one_pic{
