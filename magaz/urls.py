@@ -6,6 +6,7 @@ urlpatterns = [
     url(r'^cabinet/$', views.cabinet, name='cabinet'),
     url(r'^setuah/$', views.set_uah, name='set_uah'),
     url(r'^setusd/$', views.set_usd, name='set_usd'),
+    url(r'^orderform/$', views.orderformr, name='of'),
     url(r'^siteform/$', views.siteform, name='siteform'),
     url(r'^skypeform/$', views.skypeform, name='skypeform'),
     url(r'^professionform/$', views.professionform, name='professionform'),

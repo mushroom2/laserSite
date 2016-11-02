@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <form method="post" action="{% url 'of' %}">
+        {% csrf_token %}
+        {{ orderform }}
+        <input type="submit" value="Відправити"/>
+    </form>
+</body>
+</html>

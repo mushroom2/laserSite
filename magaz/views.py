@@ -1,4 +1,5 @@
-from django.http import HttpResponseRedirect
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from magaz.forms import *
 from magaz.models import Prises, Category, GoodPay
@@ -171,6 +172,31 @@ def set_usd(request):
     val = UserData(request)
     val.setdolar()
     return HttpResponseRedirect(request.GET.get('next'))
+
+def orderformr(request):
+    cart = Cart(request)
+    if request.method == 'POST':
+        orderform = OrderForm(request.POST)
+
+        if orderform.is_valid():
+            username = orderform.cleaned_data['clientname'] + ' from ' + str(orderform.cleaned_data['clientmail'])
+            sender = orderform.cleaned_data['clientmail']
+            message = 'клієнт: ' + str(orderform.cleaned_data['clientname']) + ';' + str(orderform.cleaned_data['clientsnumb']) + str(orderform.cleaned_data['clientdevelop']) + 'замовлення: ' + str(cart.cart)
+
+
+
+
+            recipients = ['avi.upsale@gmail.com']
+
+            try:
+                send_mail(username, message, sender, recipients)
+            except BadHeaderError:
+                return HttpResponse('something goes wrong ;(')
+            return HttpResponseRedirect('/thanks')
+
+    else:
+        orderform = OrderForm()
+    return render(request, 'magaz/of.html', {'orderform': orderform, 'cart':cart })
 """
     if request.method == 'POST':
         cabinet_form = CabinetForm(request.POST)

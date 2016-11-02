@@ -60,3 +60,14 @@ class HrivnaForm(forms.ModelForm):
     class Meta:
         model = Prises
         fields = ()
+
+class OrderForm(forms.Form):
+    ttt = [(1, 'нова пошта'), (2, 'самовивіз')]
+    clientname = forms.CharField(required=True, label="Ім'я", widget=forms.TextInput(attrs={'size': 40,
+                                                                                            'class': 'form-control'}))
+    clientsorganization = forms.CharField(required=False, label="Організація")
+    clientsnumb = forms.IntegerField(required=True, min_value=0)
+    clientmail = forms.CharField(required=False, label='e-mail',
+                                 widget=forms.TextInput(attrs={'size': 40, 'class': 'form-control'}))
+    clientdevelop = forms.ChoiceField(choices=ttt)
+    clientcomment = forms.CharField(required=False, widget=forms.Textarea(attrs={'class': 'form-control'}))
