@@ -140,6 +140,7 @@ def just_pay_for_all(request):
     order = 'order'
     user = request.user
     cart = Cart(request)
+    of = OrderForm(request)
     if request.method == 'POST':
         form = PayGoodForm(request.POST)
         if form.is_valid():
@@ -159,7 +160,8 @@ def just_pay_for_all(request):
     else:
         form = PayGoodForm()
 
-    return render(request, 'magaz/order.html', {order: 'order', cart: 'cart', form: 'form'})  #
+    return render(request, 'magaz/order.html', {order: 'order', cart: 'cart', form: 'form',
+                                                'orderformr': of})
 
 
 def set_uah(request):
@@ -175,14 +177,20 @@ def set_usd(request):
 
 def orderformr(request):
     cart = Cart(request)
+    develop = 'Самовивіз'
     if request.method == 'POST':
         orderform = OrderForm(request.POST)
 
         if orderform.is_valid():
+
+            if orderform.cleaned_data['clientdevelop'] == 1:
+                develop = 'Нова пошта'
             username = orderform.cleaned_data['clientname'] + ' from ' + str(orderform.cleaned_data['clientmail'])
             sender = orderform.cleaned_data['clientmail']
-            message = 'клієнт: ' + str(orderform.cleaned_data['clientname']) + ';' + str(orderform.cleaned_data['clientsnumb']) + str(orderform.cleaned_data['clientdevelop']) + 'замовлення: ' + str(cart.cart)
-
+            message = 'клієнт: ' + str(orderform.cleaned_data['clientname']) + '; ' + ' Номер телефону: ' + \
+                      str(orderform.cleaned_data['clientsnumb']) + '; ' + ' організація: ' + \
+                      str(orderform.cleaned_data['clientsorganization']) + '; ' + ' спосіб доставки :' + str(develop) +\
+                      '; замовлення: ' + str(cart.cart) + '; коментарій: ' + str(orderform.cleaned_data['clientcomment'])
 
 
 

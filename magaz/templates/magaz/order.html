@@ -11,11 +11,7 @@
       </div>
       <div class="modal-body">
 
-                  <form class="form-inline" action="{% url 'order' %}" method="post" >
-            {% csrf_token %}
-            {{ form }}
-            <input type="submit" value="оплатити" class="btn btn-primary btn-sm" />
-        </form>
+
 
       </div>
       <div class="modal-footer">
@@ -55,6 +51,10 @@ jQuery(document).ready(function($) {
     </table>
     <p class="text-right"></p>
     <div id="orderbtn">
-
+        <form class="form-inline" action="{% url 'order' %}" method="post" >
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="оплатити" class="btn btn-primary btn-sm" />
+        </form>
     </div>
 {% endblock %}
