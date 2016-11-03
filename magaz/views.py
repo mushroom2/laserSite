@@ -175,8 +175,10 @@ def set_usd(request):
     val.setdolar()
     return HttpResponseRedirect(request.GET.get('next'))
 
+
 def orderformr(request):
     cart = Cart(request)
+    pr = Prises.objects.all().values('id', 'good_name')
     develop = 'Самовивіз'
     if request.method == 'POST':
         orderform = OrderForm(request.POST)
@@ -185,12 +187,22 @@ def orderformr(request):
 
             if orderform.cleaned_data['clientdevelop'] == 1:
                 develop = 'Нова пошта'
+
+            cartinfo  = ''
+            for good in cart.cart:
+                for dat in pr:
+                    if dat['id'] == int(good):
+                        cartinfo += str(dat['good_name']) + ' ; ціна за одиницю  ' + str(cart.cart[good]['good_price']) + \
+                                    '; кількість: ' + str(cart.cart[good]['quantity']) + ' | '
+
+
             username = orderform.cleaned_data['clientname'] + ' from ' + str(orderform.cleaned_data['clientmail'])
             sender = orderform.cleaned_data['clientmail']
             message = 'клієнт: ' + str(orderform.cleaned_data['clientname']) + '; ' + ' Номер телефону: ' + \
                       str(orderform.cleaned_data['clientsnumb']) + '; ' + ' організація: ' + \
                       str(orderform.cleaned_data['clientsorganization']) + '; ' + ' спосіб доставки :' + str(develop) +\
-                      '; замовлення: ' + str(cart.cart) + '; коментарій: ' + str(orderform.cleaned_data['clientcomment'])
+                      '; замовлення: ' + '; коментарій: ' + \
+                      str(orderform.cleaned_data['clientcomment']) + cartinfo
 
 
 
