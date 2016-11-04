@@ -140,7 +140,7 @@ def just_pay_for_all(request):
     order = 'order'
     user = request.user
     cart = Cart(request)
-    of = OrderForm(request)
+    of = OrderForm(request.POST)
     if request.method == 'POST':
         form = PayGoodForm(request.POST)
         if form.is_valid():
@@ -161,7 +161,7 @@ def just_pay_for_all(request):
         form = PayGoodForm()
 
     return render(request, 'magaz/order.html', {order: 'order', cart: 'cart', form: 'form',
-                                                'orderformr': of})
+                                                'of': of})
 
 
 def set_uah(request):
@@ -201,8 +201,8 @@ def orderformr(request):
             message = 'клієнт: ' + str(orderform.cleaned_data['clientname']) + '; ' + ' Номер телефону: ' + \
                       str(orderform.cleaned_data['clientsnumb']) + '; ' + ' організація: ' + \
                       str(orderform.cleaned_data['clientsorganization']) + '; ' + ' спосіб доставки :' + str(develop) +\
-                      '; замовлення: ' + '; коментарій: ' + \
-                      str(orderform.cleaned_data['clientcomment']) + cartinfo
+                      '; замовлення: ' + cartinfo + '; коментарій: ' + \
+                      str(orderform.cleaned_data['clientcomment'])
 
 
 

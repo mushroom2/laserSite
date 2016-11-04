@@ -63,10 +63,9 @@ class HrivnaForm(forms.ModelForm):
 
 class OrderForm(forms.Form):
     ttt = [(1, 'нова пошта'), (2, 'самовивіз')]
-    clientname = forms.CharField(required=True, label="Ім'я", widget=forms.TextInput(attrs={'size': 40,
-                                                                                            'class': 'form-control'}))
-    clientsorganization = forms.CharField(required=False, label="Організація")
-    clientsnumb = forms.IntegerField(required=True, min_value=0)
+    clientname = forms.CharField(required=True, label="Ім'я", widget=forms.TextInput(attrs={'size': 40, 'class': 'form-control'}))
+    clientsorganization = forms.CharField(required=False, label="Організація", widget=forms.TextInput(attrs={'size': 40, 'class': 'form-control'}))
+    clientsnumb = forms.CharField(required=True, label='Номер Телефону', widget=forms.TextInput(attrs={'size': 40, 'class': 'form-control'}))
     clientmail = forms.CharField(required=False, label='e-mail',
                                  widget=forms.TextInput(attrs={'size': 40, 'class': 'form-control'}))
     clientdevelop = forms.ChoiceField(choices=ttt)
