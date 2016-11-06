@@ -103,3 +103,7 @@ def logout_view(request):
     lo = logout(request)
     return render(request, 'blog/logout.html', {'logout': lo})
 
+
+def thenksshop(request):
+    context = {'thenksshop': thenks}
+    return render(request, 'blog/thenksshop.html', context)

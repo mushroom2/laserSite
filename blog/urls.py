@@ -12,5 +12,5 @@ urlpatterns = [
     url(r'^simpleform/$', views.mysimpleform, name='form'),
     url(r'^userlogin/$', views.userauth, name = 'userlogin'),
     url(r'^userlogout/$', views.logout_view, name= 'logout'),
-
+    url(r'^complete/$', views.thenksshop, name='complete')
 ]

@@ -62,7 +62,7 @@ class HrivnaForm(forms.ModelForm):
         fields = ()
 
 class OrderForm(forms.Form):
-    ttt = [(1, 'нова пошта'), (2, 'самовивіз')]
+    ttt = [('самовивіз', 'самовивіз'), ('нова пошта', 'нова пошта')]
     clientname = forms.CharField(required=True, label="Ім'я", widget=forms.TextInput(attrs={'size': 40, 'class': 'form-control'}))
     clientsorganization = forms.CharField(required=False, label="Організація", widget=forms.TextInput(attrs={'size': 40, 'class': 'form-control'}))
     clientsnumb = forms.CharField(required=True, label='Номер Телефону', widget=forms.TextInput(attrs={'size': 40, 'class': 'form-control'}))

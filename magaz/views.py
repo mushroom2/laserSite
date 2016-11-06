@@ -177,16 +177,14 @@ def set_usd(request):
 
 
 def orderformr(request):
+    user = request.user
     cart = Cart(request)
+
     pr = Prises.objects.all().values('id', 'good_name')
-    develop = 'Самовивіз'
     if request.method == 'POST':
         orderform = OrderForm(request.POST)
-
-        if orderform.is_valid():
-
-            if orderform.cleaned_data['clientdevelop'] == 1:
-                develop = 'Нова пошта'
+        form = PayGoodForm(request.POST)
+        if orderform.is_valid() and form.is_valid():
 
             cartinfo  = ''
             for good in cart.cart:
@@ -194,17 +192,13 @@ def orderformr(request):
                     if dat['id'] == int(good):
                         cartinfo += str(dat['good_name']) + ' ; ціна за одиницю  ' + str(cart.cart[good]['good_price']) + \
                                     '; кількість: ' + str(cart.cart[good]['quantity']) + ' | '
-
-
             username = orderform.cleaned_data['clientname'] + ' from ' + str(orderform.cleaned_data['clientmail'])
             sender = orderform.cleaned_data['clientmail']
             message = 'клієнт: ' + str(orderform.cleaned_data['clientname']) + '; ' + ' Номер телефону: ' + \
                       str(orderform.cleaned_data['clientsnumb']) + '; ' + ' організація: ' + \
-                      str(orderform.cleaned_data['clientsorganization']) + '; ' + ' спосіб доставки :' + str(develop) +\
+                      str(orderform.cleaned_data['clientsorganization']) + '; ' + ' спосіб доставки :' + orderform.cleaned_data['clientdevelop'] +\
                       '; замовлення: ' + cartinfo + '; коментарій: ' + \
                       str(orderform.cleaned_data['clientcomment'])
-
-
 
             recipients = ['avi.upsale@gmail.com']
 
@@ -212,11 +206,27 @@ def orderformr(request):
                 send_mail(username, message, sender, recipients)
             except BadHeaderError:
                 return HttpResponse('something goes wrong ;(')
-            return HttpResponseRedirect('/thanks')
+            if not request.user.is_authenticated():
+                cart.clear()
+                return HttpResponseRedirect('/complete')
+            else:
+                formsave = form.save(commit=False)
+                formsave.user =user
+                for item in cart:
+                    GoodPay.objects.create(user=user,
+                                           prises=item['prise'],
+                                           price=item['good_price'],
+                                           quantity=item['quantity'],
+                                           ordersum=int(item['good_price'])*item['quantity']
+                                           )
+                cart.clear()
+                return HttpResponseRedirect('/complete')
+
 
     else:
         orderform = OrderForm()
-    return render(request, 'magaz/of.html', {'orderform': orderform, 'cart':cart })
+        form =  PayGoodForm()
+    return render(request, 'magaz/of.html', {'orderform': orderform, 'cart': cart, 'form': form})
 """
     if request.method == 'POST':
         cabinet_form = CabinetForm(request.POST)

@@ -21,17 +21,6 @@
         </tr>
         </tbody>
     </table>
-    <p class="text-right"></p>
-    {% if user.is_authenticated %}
-    <div id="orderbtn">
-        <form class="form-inline" action="{% url 'order' %}" method="post" >
-            {% csrf_token %}
-            {{ form }}
-            <input type="submit" value="оплатити" class="btn btn-primary btn-sm" />
-        </form>
-    {% endif %}
-    </div>
-
     <div id="simpleformorder" >
         <form method="post" action="{% url 'of' %}" class="form-horizontal" id="orderform">
         {% csrf_token %}
@@ -65,9 +54,16 @@
 	            {{ of.clientcomment }}
             </div>
 
+
         <input type="submit" value="Відправити"/>
         </form>
+    <p>&#42; - поля, обов'язкові для заповнення</p>
     </div>
+            {% if user.is_authenticated %}
+            <form method="post" action="{% url 'order' %}">
+            {{ form }}
+            </form>
+            {% endif %}
 
 
 {% endblock %}

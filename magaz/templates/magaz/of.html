@@ -8,6 +8,7 @@
     <form method="post" action="{% url 'of' %}">
         {% csrf_token %}
         {{ orderform }}
+        {{ form }}
         <input type="submit" value="Відправити"/>
     </form>
 </body>
