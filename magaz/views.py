@@ -198,7 +198,7 @@ def orderformr(request):
                       str(orderform.cleaned_data['clientsnumb']) + '; ' + ' організація: ' + \
                       str(orderform.cleaned_data['clientsorganization']) + '; ' + ' спосіб доставки :' + orderform.cleaned_data['clientdevelop'] +\
                       '; замовлення: ' + cartinfo + '; коментарій: ' + \
-                      str(orderform.cleaned_data['clientcomment'])
+                      str(orderform.cleaned_data['clientcomment']) + '; загальна сумма замовлення: ' + str(cart.get_total_price()) + ' грн.'
 
             recipients = ['avi.upsale@gmail.com']
 
